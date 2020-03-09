@@ -1,0 +1,186 @@
+small sequence of similar files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.090000
+User time: 0.010000
+System time: 0.000000
+Current operation: executing diff
+Real time: 0.030000
+User time: 0.010000
+System time: 0.000000
+Current operation: putting results into main array
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.010000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.040000
+User time: 0.010000
+System time: 0.000000
+------------------------------------------------------------------
+small sequence of different files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.080000
+User time: 0.010000
+System time: 0.000000
+Current operation: executing diff
+Real time: 0.040000
+User time: 0.010000
+System time: 0.000000
+Current operation: putting results into main array
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.040000
+User time: 0.020000
+System time: 0.000000
+------------------------------------------------------------------
+medium sequence of similar files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.310000
+User time: 0.070000
+System time: 0.000000
+Current operation: executing diff
+Real time: 0.140000
+User time: 0.040000
+System time: 0.010000
+Current operation: putting results into main array
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.010000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.140000
+User time: 0.050000
+System time: 0.000000
+------------------------------------------------------------------
+medium sequence of different files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.240000
+User time: 0.060000
+System time: 0.000000
+Current operation: executing diff
+Real time: 0.160000
+User time: 0.050000
+System time: 0.000000
+Current operation: putting results into main array
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.010000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.130000
+User time: 0.050000
+System time: 0.010000
+------------------------------------------------------------------
+big sequence of similar files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.730000
+User time: 0.170000
+System time: 0.020000
+Current operation: executing diff
+Real time: 0.410000
+User time: 0.110000
+System time: 0.010000
+Current operation: putting results into main array
+Real time: 0.020000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.020000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.480000
+User time: 0.140000
+System time: 0.010000
+------------------------------------------------------------------
+big sequence of different files
+------------------------------------------------------------------
+Current operation: main array initialization
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: generating files
+Real time: 0.730000
+User time: 0.190000
+System time: 0.010000
+Current operation: executing diff
+Real time: 0.370000
+User time: 0.110000
+System time: 0.020000
+Current operation: putting results into main array
+Real time: 0.020000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting allocated blocks
+Real time: 0.000000
+User time: 0.000000
+System time: 0.000000
+Current operation: adding and deleting blocks
+Real time: 0.030000
+User time: 0.000000
+System time: 0.000000
+Current operation: deleting generated files
+Real time: 0.490000
+User time: 0.130000
+System time: 0.000000
+------------------------------------------------------------------

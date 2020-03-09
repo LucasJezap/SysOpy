@@ -1,0 +1,208 @@
+Wyniki wykonanego doswiadczenia nie wykazuja znaczacych roznic miedzy szybkoscia 
+biblioteki statycznej a wspoldzielonej(dynamicznej). Podczas wielu pomiarow wyniki
+roznily sie nieznacznie (okolo 10%) co prawdopodobnie wynika z systemu operacyjnego oraz
+roznego przydzielania czasu procesora. Warto zauwazyc ze czas procesora w trybie uzytkownika
+oraz systemu jest bardzo maly w porownaniu do czasu rzeczywistego. Roznice sa wiec w moim programie
+niezauwazalne.
+
+RESULTS FOR STATIC LIBRARY
+small sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.100000            0.000000            0.000000            0.030000            0.000000            
+executing diff                          0.050000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting generated files                0.050000            0.010000            0.000000            0.020000            0.000000            
+------------------------------------------------------------------
+small sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.110000            0.000000            0.000000            0.030000            0.000000            
+executing diff                          0.050000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.000000            0.010000            0.000000            0.000000            0.000000            
+deleting generated files                0.050000            0.000000            0.000000            0.020000            0.000000            
+------------------------------------------------------------------
+medium sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.950000            0.080000            0.020000            0.310000            0.030000            
+executing diff                          0.580000            0.000000            0.010000            0.200000            0.020000            
+putting results into main array         0.020000            0.000000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.050000            0.010000            0.000000            0.000000            0.000000            
+deleting generated files                1.080000            0.010000            0.080000            0.280000            0.040000            
+------------------------------------------------------------------
+medium sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        1.420000            0.050000            0.050000            0.350000            0.030000            
+executing diff                          0.750000            0.010000            0.010000            0.230000            0.020000            
+putting results into main array         0.050000            0.010000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.010000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.050000            0.020000            0.000000            0.000000            0.000000            
+deleting generated files                1.080000            0.030000            0.030000            0.270000            0.040000            
+------------------------------------------------------------------
+big sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.430000            0.220000            0.070000            0.870000            0.080000            
+executing diff                          1.320000            0.000000            0.020000            0.490000            0.060000            
+putting results into main array         0.060000            0.020000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.110000            0.030000            0.010000            0.000000            0.000000            
+deleting generated files                3.110000            0.020000            0.270000            0.860000            0.150000            
+------------------------------------------------------------------
+big sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.740000            0.210000            0.070000            0.900000            0.110000            
+executing diff                          1.830000            0.010000            0.010000            0.580000            0.060000            
+putting results into main array         0.120000            0.030000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.100000            0.030000            0.020000            0.000000            0.000000            
+deleting generated files                3.630000            0.020000            0.240000            0.870000            0.170000            
+------------------------------------------------------------------
+RESULTS FOR SHARED LIBRARY
+small sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.120000            0.010000            0.000000            0.030000            0.000000            
+executing diff                          0.040000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.010000            0.000000            0.000000            0.000000            0.000000            
+deleting generated files                0.050000            0.000000            0.000000            0.020000            0.010000            
+------------------------------------------------------------------
+small sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.120000            0.000000            0.000000            0.030000            0.000000            
+executing diff                          0.040000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.010000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.000000            0.000000            0.010000            0.000000            0.000000            
+deleting generated files                0.050000            0.000000            0.000000            0.020000            0.000000            
+------------------------------------------------------------------
+medium sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        1.490000            0.080000            0.040000            0.350000            0.040000            
+executing diff                          0.530000            0.000000            0.010000            0.190000            0.020000            
+putting results into main array         0.030000            0.000000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.040000            0.010000            0.000000            0.000000            0.000000            
+deleting generated files                1.030000            0.010000            0.070000            0.280000            0.030000            
+------------------------------------------------------------------
+medium sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        1.450000            0.080000            0.020000            0.340000            0.040000            
+executing diff                          0.750000            0.010000            0.010000            0.230000            0.020000            
+putting results into main array         0.050000            0.000000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.040000            0.010000            0.010000            0.000000            0.000000            
+deleting generated files                1.070000            0.010000            0.060000            0.270000            0.030000            
+------------------------------------------------------------------
+big sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.470000            0.210000            0.070000            0.900000            0.080000            
+executing diff                          1.640000            0.010000            0.010000            0.500000            0.040000            
+putting results into main array         0.100000            0.030000            0.010000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.080000            0.030000            0.000000            0.000000            0.000000            
+deleting generated files                3.840000            0.020000            0.310000            0.880000            0.200000            
+------------------------------------------------------------------
+big sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.500000            0.180000            0.100000            0.890000            0.090000            
+executing diff                          1.790000            0.000000            0.020000            0.570000            0.060000            
+putting results into main array         0.110000            0.040000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.110000            0.030000            0.020000            0.000000            0.000000            
+deleting generated files                3.670000            0.000000            0.280000            0.840000            0.190000            
+------------------------------------------------------------------
+RESULTS FOR DYNAMIC LIBRARY
+small sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.160000            0.010000            0.000000            0.030000            0.000000            
+executing diff                          0.070000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting generated files                0.070000            0.000000            0.000000            0.020000            0.010000            
+------------------------------------------------------------------
+small sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        0.170000            0.000000            0.000000            0.030000            0.000000            
+executing diff                          0.070000            0.000000            0.000000            0.020000            0.000000            
+putting results into main array         0.000000            0.000000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.010000            0.000000            0.000000            0.000000            0.000000            
+deleting generated files                0.090000            0.000000            0.000000            0.030000            0.000000            
+------------------------------------------------------------------
+medium sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        1.440000            0.080000            0.020000            0.330000            0.060000            
+executing diff                          0.640000            0.000000            0.010000            0.200000            0.010000            
+putting results into main array         0.050000            0.000000            0.020000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.050000            0.010000            0.000000            0.000000            0.000000            
+deleting generated files                1.190000            0.010000            0.070000            0.290000            0.040000            
+------------------------------------------------------------------
+medium sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        1.470000            0.070000            0.030000            0.350000            0.040000            
+executing diff                          0.780000            0.000000            0.010000            0.230000            0.020000            
+putting results into main array         0.040000            0.020000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.050000            0.010000            0.010000            0.000000            0.000000            
+deleting generated files                1.170000            0.020000            0.050000            0.290000            0.040000            
+------------------------------------------------------------------
+big sequence of similar files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.550000            0.240000            0.030000            0.890000            0.090000            
+executing diff                          1.480000            0.010000            0.010000            0.490000            0.040000            
+putting results into main array         0.080000            0.040000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.010000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.070000            0.020000            0.020000            0.000000            0.000000            
+deleting generated files                3.720000            0.020000            0.300000            0.860000            0.200000            
+------------------------------------------------------------------
+big sequence of different files
+------------------------------------------------------------------
+Action                                  real time           utime               stime               cutime              cstime              
+main array initialization               0.000000            0.000000            0.000000            0.000000            0.000000            
+generating files                        3.520000            0.230000            0.050000            0.890000            0.080000            
+executing diff                          1.820000            0.000000            0.020000            0.580000            0.060000            
+putting results into main array         0.130000            0.040000            0.000000            0.000000            0.000000            
+deleting allocated blocks               0.000000            0.000000            0.000000            0.000000            0.000000            
+adding and deleting blocks              0.130000            0.040000            0.010000            0.000000            0.000000            
+deleting generated files                3.660000            0.030000            0.240000            0.860000            0.180000            
+------------------------------------------------------------------

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_library.h"
+#include "lib.h"
 #include <sys/times.h>
 #include <time.h>
 #include <unistd.h>
@@ -18,10 +18,12 @@ void timer_stop() {
 }
 
 void print_time(char *op) {
-    printf("Current operation: %s\n",op);
-    printf("Real time: %f\n",(double) (end_t-start_t)/ sysconf(_SC_CLK_TCK));
-    printf("User time: %f\n",(double) (end_cpu.tms_cutime-start_cpu.tms_cutime) / sysconf(_SC_CLK_TCK));
-    printf("System time: %f\n",(double) (end_cpu.tms_cstime-start_cpu.tms_cstime) / sysconf(_SC_CLK_TCK));
+    printf("%-40s",op);
+    printf("%-20f",(double) (end_t-start_t)/ sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_utime-start_cpu.tms_utime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_stime-start_cpu.tms_stime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_cutime-start_cpu.tms_cutime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f\n",(double) (end_cpu.tms_cstime-start_cpu.tms_cstime) / sysconf(_SC_CLK_TCK));
 }
 
 void generate_text(char *similarity, char *length, int change) {
@@ -178,6 +180,7 @@ int main(int argc, char *argv[]) {
                  "\nPlease choose only  of them\n");
     }
     else {
+        printf("%-40s%-20s%-20s%-20s%-20s%-20s\n","Action","real time","utime","stime","cutime","cstime");
         timer_start();
         create_main_array(atoi(argv[2]));
         timer_stop();

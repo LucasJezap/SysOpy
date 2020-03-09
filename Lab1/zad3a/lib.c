@@ -2,7 +2,7 @@
 Created by Lukasz Jezapkowicz on 03.04.2020.
 */
 
-#include <my_library.h>
+#include <lib.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

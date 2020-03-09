@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_library.h"
+#include "lib.h"
 #include <sys/times.h>
 #include <time.h>
 #include <unistd.h>
@@ -18,10 +18,12 @@ void timer_stop() {
 }
 
 void print_time(char *op) {
-    printf("Current operation: %s\n",op);
-    printf("Real time: %f\n",(double) (end_t-start_t)/ sysconf(_SC_CLK_TCK));
-    printf("User time: %f\n",(double) (end_cpu.tms_cutime-start_cpu.tms_cutime) / sysconf(_SC_CLK_TCK));
-    printf("System time: %f\n",(double) (end_cpu.tms_cstime-start_cpu.tms_cstime) / sysconf(_SC_CLK_TCK));
+    printf("%-40s",op);
+    printf("%-20f",(double) (end_t-start_t)/ sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_utime-start_cpu.tms_utime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_stime-start_cpu.tms_stime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f",(double) (end_cpu.tms_cutime-start_cpu.tms_cutime) / sysconf(_SC_CLK_TCK));
+    printf("%-20f\n",(double) (end_cpu.tms_cstime-start_cpu.tms_cstime) / sysconf(_SC_CLK_TCK));
 }
 
 void generate_text(char *similarity, char *length, int change) {
@@ -33,8 +35,8 @@ void generate_text(char *similarity, char *length, int change) {
     chunks[2]="ccc";
     chunks[3]="ddd";
     if (strcmp(length,"small")==0) size = 100;
-    else if (strcmp(length,"medium")==0) size = 500;
-    else size = 2000;
+    else if (strcmp(length,"medium")==0) size = 200;
+    else size = 500;
     text = (char *)calloc(2000,sizeof(char));
     strcpy(text,"");
     if (strcmp(similarity,"similar") == 0) {
@@ -59,13 +61,14 @@ void generate_text(char *similarity, char *length, int change) {
         }
     }
     char echo[10000];
-    char number[10];
+    char number[15];
     sprintf(number,"%d",change);
     strcpy(echo,"echo '");
     strcat(echo,text);
     strcat(echo,"' > tmp");
     strcat(echo,number);
-    system(echo);
+    int e = system(echo);
+    e = e + 1;
     free(text);
 }
 
@@ -73,11 +76,12 @@ void generate_files(struct file_pair files[], int number_of_pairs, char * simila
     timer_start();
     for (int i=0; i<2*number_of_pairs; i++) {
         char command[20];
-        char number[10];
+        char number[15];
         sprintf(number,"%d",i);
         strcpy(command,"touch tmp");
         strcat(command,number);
-        system(command);
+        int e = system(command);
+        e = e + 1;
 
         generate_text(similarity,length,i);
 
@@ -115,16 +119,17 @@ void generate_files(struct file_pair files[], int number_of_pairs, char * simila
     timer_start();
      for (int i=0; i<2*number_of_pairs; i++) {
         char command[20];
-        char number[10];
+        char number[15];
         sprintf(number,"%d",i);
         strcpy(command,"rm tmp");
         strcat(command,number);
-        system(command);
+        int e = system(command);
+        e = e + 1;
     }
     timer_stop();
     print_time("deleting generated files");
     delete_diff(number_of_pairs);
-    free_memory();
+    free_memory(); 
 }
 
 void make_operation(char *op, char *arg, int size) {
@@ -156,7 +161,7 @@ void make_operation(char *op, char *arg, int size) {
         char number_of_pairs[10];
         char length[10];
         char similarity[20];
-        char tmp[20];
+        char tmp[40];
         strcpy(tmp,arg);
         strcpy(number_of_pairs,strtok(tmp," "));
         strcpy(similarity,strtok(NULL," "));
@@ -178,6 +183,7 @@ int main(int argc, char *argv[]) {
                  "\nPlease choose only  of them\n");
     }
     else {
+        printf("%-40s%-20s%-20s%-20s%-20s%-20s\n","Action","real time","utime","stime","cutime","cstime");
         timer_start();
         create_main_array(atoi(argv[2]));
         timer_stop();
