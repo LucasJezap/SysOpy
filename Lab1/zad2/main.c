@@ -164,6 +164,8 @@ void make_operation(char *op, char *arg, int size) {
         struct file_pair files[atoi(number_of_pairs)];
         generate_files(files,atoi(number_of_pairs),similarity,length);
     }
+    else 
+        printf("WRONG OPERATION NAME!\n");
 }
 
 int main(int argc, char *argv[]) {

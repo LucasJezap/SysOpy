@@ -8,6 +8,7 @@ Created by Lukasz Jezapkowicz on 03.04.2020.
 #include <stdlib.h>
 #include <errno.h>
 
+
 void create_main_array(int size) {
     if (size <= 0) {
         printf("Can't create array! Size must be positive.\n");
@@ -20,6 +21,10 @@ void create_main_array(int size) {
 }
 
 struct file_pair * make_file_sequence(char *files[], int size) {
+     if (size < 0) {
+        printf("Size must be positive!\n");
+        return NULL;
+    }
     struct file_pair * fsequence = (struct file_pair *)calloc(size,sizeof(struct file_pair));
     char file1[50];
     char file2[50];
@@ -39,6 +44,10 @@ struct file_pair * make_file_sequence(char *files[], int size) {
 }
 
 void execute_diff(struct file_pair files[],int size) {
+       if (size < 0) {
+        printf("Size must be positive!\n");
+        return;
+    }
     for(int i=0; i<size; i++) {
         char command[60];
         snprintf(command,sizeof(command),"diff %s %s > diff_result%d",files[i].file1,files[i].file2,i);
@@ -55,6 +64,10 @@ void delete_diff(int size) {
 }
 
 int put_block(struct file_pair files, int size, int index) {
+    if (size < 0) {
+        printf("Size must be positive!\n");
+        return -1;
+    }
     char file_name[15];
     snprintf(file_name,sizeof(file_name),"diff_result%d",index);
     FILE *fp = fopen(file_name,"r");

@@ -20,6 +20,10 @@ void create_main_array(int size) {
 }
 
 struct file_pair * make_file_sequence(char *files[], int size) {
+    if (size < 0) {
+        printf("Size must be positive!\n");
+        return NULL;
+    }
     struct file_pair * fsequence = (struct file_pair *)calloc(size,sizeof(struct file_pair));
     char file1[50];
     char file2[50];
@@ -39,6 +43,11 @@ struct file_pair * make_file_sequence(char *files[], int size) {
 }
 
 void execute_diff(struct file_pair files[],int size) {
+    if (size < 0) {
+        printf("Size must be positive!\n");
+        return;
+    }
+
     system("touch diff_result");
 
     for(int i=0; i<size; i++) {
@@ -53,6 +62,10 @@ void execute_diff(struct file_pair files[],int size) {
 }
 
 int put_block(struct file_pair files, int size) {
+    if (size < 0) {
+        printf("Size must be positive!\n");
+        return -1;
+    }
     if (c_index==size) {
         printf("Main array is full!.\n");
         return -1;

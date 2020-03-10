@@ -3,12 +3,12 @@ CC = gcc -Wall -std=c11 -ggdb
 static: 
 		make clean
 		$(CC) -c my_library.c -o my_library.o -I.
-		ar rcs my_library.a my_library
+		ar rcs my_library.a my_library.o
 
 shared: 
 		make clean
 		$(CC) -c -fPIC my_library.c -o my_library.o -I.
-		$(CC) -shared -fPIC -o my_library.so my_library
+		$(CC) -shared -fPIC -o libfoo.so my_library.o
 
 clean:
 		rm -f *.o
@@ -22,7 +22,7 @@ execute2_static:
 
 execute2_shared:
 		make shared
-		$(CC) main.c -Wl,-rpath /usr/local/lib 	
+		$(CC) -o zad2 main.c -L. libfoo.so -I.
 		make execute_tests
 
 execute_tests:
