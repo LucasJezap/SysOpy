@@ -1,0 +1,118 @@
+Wyniki wykonanego doswiadczenia nie wykazuja bardzo duzych roznic miedzy szybkoscia funkcji bibliotecznych
+operacji wejscia/wyjscia a szybkoscia funkcji systemowych. Podczas wielu pomiarow wyniki
+roznily sie prawie zawsze o okolo (10-30) % na korzysc funkcji systemowych. Warto zauwazyc ze roznica 
+zazwyczaj rosla wraz ze wzrostem dlugosci rekordow czy ich ilosci. Mozna zatem wywnioskowac ze dla duzych
+zbiorow danych o wiele korzystniej jest korzystac z funkcji systemowych, poniewaz moga one dzialac znaczaco szybciej.
+
+RESULTS FOR SYSTEM
+
+RESULTS FOR COPYING
+
+Action                                  real time           utime               stime               cutime              cstime              
+500 records of length 1
+copy system                             0.010000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 4
+copy system                             0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 512
+copy system                             0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 1024
+copy system                             0.010000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 4096
+copy system                             0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 8192
+copy system                             0.010000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 1
+copy system                             0.020000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 4
+copy system                             0.010000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 512
+copy system                             0.020000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 1024
+copy system                             0.020000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 4096
+copy system                             0.020000            0.000000            0.010000            0.000000            0.000000            
+2000 records of length 8192
+copy system                             0.040000            0.000000            0.010000            0.000000            0.000000            
+
+RESULTS FOR SORTING
+
+500 records of length 1
+sorting system                          0.060000            0.010000            0.000000            0.000000            0.000000            
+500 records of length 4
+sorting system                          0.040000            0.000000            0.010000            0.000000            0.000000            
+500 records of length 512
+sorting system                          0.040000            0.000000            0.020000            0.000000            0.000000            
+500 records of length 1024
+sorting system                          0.300000            0.040000            0.100000            0.000000            0.000000            
+500 records of length 4096
+sorting system                          1.590000            0.140000            0.640000            0.000000            0.000000            
+500 records of length 8192
+sorting system                          2.470000            0.230000            1.000000            0.000000            0.000000            
+2000 records of length 1
+sorting system                          0.560000            0.070000            0.200000            0.000000            0.000000            
+2000 records of length 4
+sorting system                          0.210000            0.020000            0.080000            0.000000            0.000000            
+2000 records of length 512
+sorting system                          0.290000            0.030000            0.100000            0.000000            0.000000            
+2000 records of length 1024
+sorting system                          5.080000            0.620000            1.900000            0.000000            0.000000            
+2000 records of length 4096
+sorting system                          27.830000           2.690000            11.200000           0.000000            0.000000            
+2000 records of length 8192
+sorting system                          40.420000           3.420000            16.760000           0.000000            0.000000            
+
+RESULTS FOR LIBRARY
+
+RESULTS FOR COPYING
+
+500 records of length 1
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 4
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 512
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 1024
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 4096
+copy library                            0.010000            0.000000            0.000000            0.000000            0.000000            
+500 records of length 8192
+copy library                            0.010000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 1
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 4
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 512
+copy library                            0.000000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 1024
+copy library                            0.010000            0.000000            0.000000            0.000000            0.000000            
+2000 records of length 4096
+copy library                            0.030000            0.000000            0.010000            0.000000            0.000000            
+2000 records of length 8192
+copy library                            0.030000            0.010000            0.010000            0.000000            0.000000            
+
+RESULTS FOR SORTING
+
+500 records of length 1
+sorting library                         0.060000            0.010000            0.010000            0.000000            0.000000            
+500 records of length 4
+sorting library                         0.040000            0.010000            0.010000            0.000000            0.000000            
+500 records of length 512
+sorting library                         0.140000            0.010000            0.050000            0.000000            0.000000            
+500 records of length 1024
+sorting library                         0.490000            0.040000            0.190000            0.000000            0.000000            
+500 records of length 4096
+sorting library                         2.140000            0.240000            0.810000            0.000000            0.000000            
+500 records of length 8192
+sorting library                         2.890000            0.340000            1.090000            0.000000            0.000000            
+2000 records of length 1
+sorting library                         0.580000            0.070000            0.210000            0.000000            0.000000            
+2000 records of length 4
+sorting library                         0.210000            0.030000            0.070000            0.000000            0.000000            
+2000 records of length 512
+sorting library                         2.150000            0.190000            0.870000            0.000000            0.000000            
+2000 records of length 1024
+sorting library                         8.730000            1.040000            3.310000            0.000000            0.000000            
+2000 records of length 4096
+sorting library                         34.800000           3.640000            13.720000           0.000000            0.000000            
+2000 records of length 8192
+sorting library                         44.660000           4.230000            18.080000           0.000000            0.000000            
