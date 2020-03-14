@@ -1,0 +1,307 @@
+Obydwie zaimplementowane funkcje dzialaja tak samo dzieki czemu ilosc znajdowanych plikow 
+jest dokladnie taka sama w kazdym przypadku. Dodatkowo jest zachowana taka sama kolejnosc w obydwu metodach
+(po napotkaniu do folderu wchodzimy do niego). Podczas testow szybkosciowych nftw okazal sie nieco szybszy niz 
+funkcja napisana przy pomocy opendir,makedir,stat. Program testowalem na wielu strukturach katalogow i zawsze wyniki
+byly zgodne. Ponizej pokazuje wyniki dzialania programu dla komendy:
+./zad1 "/home/yyy/Desktop" -atime -5 -mtime -5 -maxdepth 3
+Na pulpicie znajdowal sie link symboliczny "linkToHome" odnoszacy sie do folderu /home. Jak widac, program pominal taka
+mozliwosc (tak jak w specyfikacji zadania).
+
+
+Results for method using opendir,makedir,stat:
+
+
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 20:35:34
+Time of last modification: Thu 12-03-2020 19:02:44
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2
+Type: Directory
+Number of links: 3
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:21
+Time of last modification: Thu 12-03-2020 19:02:56
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 23:51:35
+Time of last modification: Fri 13-03-2020 23:49:40
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/zad2
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 20:17:58
+Time of last modification: Sat 14-03-2020 20:17:58
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/zad1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 23:42:34
+Time of last modification: Fri 13-03-2020 23:42:34
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/wyniki1
+Type: Regular file
+Number of links: 1
+Size (in bytes): 8825
+Time of last access: Fri 13-03-2020 23:51:44
+Time of last modification: Fri 13-03-2020 23:49:40
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:21
+Time of last modification: Thu 12-03-2020 19:02:49
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad3b
+Type: Directory
+Number of links: 2
+Size (in bytes): 20480
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:25
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad2
+Type: Directory
+Number of links: 2
+Size (in bytes): 303104
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:14
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:17:57
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad3a
+Type: Directory
+Number of links: 2
+Size (in bytes): 36864
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:21
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/linkToHome
+Type: Symbolic link
+Number of links: 1
+Size (in bytes): 5
+Time of last access: Sat 14-03-2020 20:15:28
+Time of last modification: Sat 14-03-2020 20:15:28
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 20:35:34
+Time of last modification: Tue 10-03-2020 23:41:28
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/.vscode
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 16:49:31
+Time of last modification: Tue 10-03-2020 10:12:26
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/.vscode/settings.json
+Type: Regular file
+Number of links: 1
+Size (in bytes): 63
+Time of last access: Thu 12-03-2020 19:03:37
+Time of last modification: Tue 10-03-2020 10:12:26
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 16:49:31
+Time of last modification: Tue 10-03-2020 13:49:19
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1/Lab1
+Type: Regular file
+Number of links: 1
+Size (in bytes): 33176
+Time of last access: Tue 10-03-2020 13:49:21
+Time of last modification: Tue 10-03-2020 13:49:19
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1/Lab1.cpp
+Type: Regular file
+Number of links: 1
+Size (in bytes): 2296
+Time of last access: Tue 10-03-2020 14:10:50
+Time of last modification: Tue 10-03-2020 13:53:34
+------------------------------------------------------------------
+
+
+
+Results for method using nftw: 
+
+
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 20:35:34
+Time of last modification: Thu 12-03-2020 19:02:44
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2
+Type: Directory
+Number of links: 3
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:21
+Time of last modification: Thu 12-03-2020 19:02:56
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 23:51:35
+Time of last modification: Fri 13-03-2020 23:49:40
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/zad2
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 20:17:58
+Time of last modification: Sat 14-03-2020 20:17:58
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/zad1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 23:42:34
+Time of last modification: Fri 13-03-2020 23:42:34
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab2/cw02/wyniki1
+Type: Regular file
+Number of links: 1
+Size (in bytes): 8825
+Time of last access: Fri 13-03-2020 23:51:44
+Time of last modification: Fri 13-03-2020 23:49:40
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:21
+Time of last modification: Thu 12-03-2020 19:02:49
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad3b
+Type: Directory
+Number of links: 2
+Size (in bytes): 20480
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:25
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad2
+Type: Directory
+Number of links: 2
+Size (in bytes): 303104
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:14
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:17:57
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/SysOpy/Lab1/cw01/zad3a
+Type: Directory
+Number of links: 2
+Size (in bytes): 36864
+Time of last access: Fri 13-03-2020 21:42:23
+Time of last modification: Tue 10-03-2020 15:22:21
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home
+Type: Symbolic link
+Number of links: 1
+Size (in bytes): 5
+Time of last access: Sat 14-03-2020 20:15:28
+Time of last modification: Sat 14-03-2020 20:15:28
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses
+Type: Directory
+Number of links: 4
+Size (in bytes): 4096
+Time of last access: Fri 13-03-2020 20:35:34
+Time of last modification: Tue 10-03-2020 23:41:28
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/.vscode
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 16:49:31
+Time of last modification: Tue 10-03-2020 10:12:26
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/.vscode/settings.json
+Type: Regular file
+Number of links: 1
+Size (in bytes): 63
+Time of last access: Thu 12-03-2020 19:03:37
+Time of last modification: Tue 10-03-2020 10:12:26
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1
+Type: Directory
+Number of links: 2
+Size (in bytes): 4096
+Time of last access: Sat 14-03-2020 16:49:31
+Time of last modification: Tue 10-03-2020 13:49:19
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1/Lab1
+Type: Regular file
+Number of links: 1
+Size (in bytes): 33176
+Time of last access: Tue 10-03-2020 13:49:21
+Time of last modification: Tue 10-03-2020 13:49:19
+------------------------------------------------------------------
+------------------------------------------------------------------
+Absolute path: /home/yyy/Desktop/CppClasses/Lab1/Lab1.cpp
+Type: Regular file
+Number of links: 1
+Size (in bytes): 2296
+Time of last access: Tue 10-03-2020 14:10:50
+Time of last modification: Tue 10-03-2020 13:53:34
+------------------------------------------------------------------
