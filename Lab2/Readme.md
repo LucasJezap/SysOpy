@@ -16,6 +16,7 @@ Sortowanie i kopiowanie powinno być zaimplementowane w dwóch wariantach:
 
   - sys - przy użyciu funkcji systemowych: read i write
   - lib - przy użyciu funkcji biblioteki C: fread i fwrite  
+ 
 Rodzaj operacji oraz sposób dostępu do plików ma być wybierany na podstawie argumentu wywołania,  np.:
 ./program generate dane 100 512 powinno losowo generować 100 rekordów o długości 512 bajtów (znaków)
 do pliku dane,
@@ -40,4 +41,5 @@ Program należy zaimplementować w dwóch wariantach:
 
    1. Korzystając z funkcji opendir(), readdir() oraz funkcji z rodziny stat (25%)  
    2. Korzystając z funkcji nftw() (20%)  
+   
 W ramach testowania funkcji utwórz w badanej strukturze katalogów jakieś dowiązania symboliczne, zwykłe pliki i katalogi.
