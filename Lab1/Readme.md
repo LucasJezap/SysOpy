@@ -32,8 +32,9 @@ aaa
 fff ccc  
 eee  
 bbb ggg  
-Wynik wykonania diff a.txt b.txt:  
-  
+Wynik wykonania  
+diff a.txt b.txt:  
+
 0a1  
 > jjj kkk  
 2,3c3  
