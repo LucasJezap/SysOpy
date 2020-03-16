@@ -2,8 +2,8 @@
 ## Zadania - zestaw 2
 Zapoznaj się ze składnią i operacjami wykonywanymi przez poniższe funkcje:
 
-- funkcje operujące na plikach i katalogach: open(), close(), read(), write(), fcntl(), stat(), fstat(), lstat(), mkdir(), rmdir(), - - - opendir(), closedir(), readdir(), rewinddir(), nftw(), fopen(), fclose(), getc(), putc(),
-funkcje i zmienne do obsługi błędów: perror, errno.
+- funkcje operujące na plikach i katalogach: open(), close(), read(), write(), fcntl(), stat(), fstat(), lstat(), mkdir(), rmdir(), - - opendir(), closedir(), readdir(), rewinddir(), nftw(), fopen(), fclose(), getc(), putc(),  
+- funkcje i zmienne do obsługi błędów: perror, errno.
 ## Zadanie 1. Porównanie wydajności systemowych i bibliotecznych funkcji We/Wy (55%)
 - (30%) Celem zadania jest napisanie programu porównującego wydajność systemowych oraz bibliotecznych funkcji wejścia/wyjścia. Program operował będzie na przechowywanej w pliku tablicy napisów (rekordów). Dla uproszczenia pojedynczy napis będzie miał stałą wielkość. Nazwa pliku, wielkość oraz liczba  i długość napisów stanowić będą argumenty wywołania programu.
 
@@ -11,10 +11,11 @@ Program udostępniać powinien operacje:
   - generate - tworzenie pliku z rekordami wypełnionego wygenerowaną losową zawartością (można wykorzystać wirtualny generator/dev/random) lub w wersji uproszczonej funkcję rand()
   - sort - sortuje rekordy w pliku (w porządku leksykograficznym), używając sortowania szybkiego. Kluczem do sortowania niech będzie wartość pierwszego napisu / rekordu.  Podczas sortowania w pamięci powinny być przechowywane jednocześnie najwyżej dwa rekordy (porównywanie dwóch rekordów).
   - copy - kopiuje plik1 do pliku2. Kopiowanie powinno odbywać się za pomocą bufora o zadanej wielkości rekordu.
+  
 Sortowanie i kopiowanie powinno być zaimplementowane w dwóch wariantach:
 
   - sys - przy użyciu funkcji systemowych: read i write
-  - lib - przy użyciu funkcji biblioteki C: fread i fwrite
+  - lib - przy użyciu funkcji biblioteki C: fread i fwrite  
 Rodzaj operacji oraz sposób dostępu do plików ma być wybierany na podstawie argumentu wywołania,  np.:
 ./program generate dane 100 512 powinno losowo generować 100 rekordów o długości 512 bajtów (znaków)
 do pliku dane,
@@ -37,6 +38,6 @@ Napisz prosty odpowiednik programu find — program powinien implementować nast
 
 Program należy zaimplementować w dwóch wariantach:
 
-  Korzystając z funkcji opendir(), readdir() oraz funkcji z rodziny stat (25%)
-  Korzystając z funkcji nftw() (20%)
+   1. Korzystając z funkcji opendir(), readdir() oraz funkcji z rodziny stat (25%)  
+   2. Korzystając z funkcji nftw() (20%)  
 W ramach testowania funkcji utwórz w badanej strukturze katalogów jakieś dowiązania symboliczne, zwykłe pliki i katalogi.
