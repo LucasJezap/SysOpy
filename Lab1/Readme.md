@@ -18,33 +18,33 @@ Biblioteka powinna umożliwiać:
 - Usunięcie, z pamięci, określonej operacji dla podanego bloku operacji edycyjnych  
 Przykład — załóżmy, że sekwencja nazw plików zawiera tylko jedną parę ('a.txt', 'b.txt').
 
-Zawartość pliku a.txt:
-
-aaa
-bbb ccc
-ddd
-eee
-hhh iii 
-Zawartość pliku b.txt:
-
-jjj kkk
-aaa
-fff ccc
-eee
-bbb ggg
-Wynik wykonania diff a.txt b.txt:
-
-0a1
-> jjj kkk
-2,3c3
-< bbb ccc
-< ddd
----
-> fff ccc
-5c5
-< hhh iii 
----
-> bbb ggg
+Zawartość pliku a.txt:  
+  
+aaa  
+bbb ccc  
+ddd  
+eee  
+hhh iii  
+Zawartość pliku b.txt:  
+  
+jjj kkk  
+aaa  
+fff ccc  
+eee  
+bbb ggg  
+Wynik wykonania diff a.txt b.txt:  
+  
+0a1  
+> jjj kkk  
+2,3c3  
+< bbb ccc  
+< ddd  
+---  
+> fff ccc  
+5c5  
+< hhh iii   
+---  
+> bbb ggg  
 W tym przypadku tablica główna powinna zawierać tylko jeden wskaźnik na  blok operacji edycyjnych (bo mamy tylko jedną parę plików).  Blok operacji edycyjnych powinien być trzyelementową tablicą wskaźników na napisy z treścią operacji edycyjnych.
 Struktura danych
 
