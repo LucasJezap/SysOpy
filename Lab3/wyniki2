@@ -1,0 +1,433 @@
+Ponizej zebralem przykladowe wywolania funkcji generator,macierz oraz checker (sprawdza poprawnosc). Dla pierwszego wywolania czas dzialania procesu
+okazal sie za maly przez co nie wszystkie macierze zostaly wymnozone poprawnie (nie zostaly calkowicie wymnozone). W kolejnych wywolaniach dobralem
+taki czas zeby macierze zdazyly sie poprawnie wykonac. Kazdy przyklad poprzedzony jest odpowiednim wywolaniem w celu sprawdzenia czy dane sa poprawne.
+
+mode == 0 -> do wielu plikow
+mode == 1 -> do jednego pliku
+
+Ponizej przykladowy wynik mnozenia macierzy.
+
+8 -95 -77 -66 88              
+25 -82 62 65 48
+-1 -81 2 -78 -45   < - Macierz A
+60 72 -72 10 -79
+69 49 -93 70 -83
+
+-56 -26 74 -18 18
+6 41 -27 29 75
+-40 -96 93 73 19   < - Macierz B
+41 -29 38 93 -57
+94 2 65 72 -88
+
+7628 5379 -792 -8322 -12426 
+2805 -11753 15420 11199 -12451 
+-7938 -1315 -3590 -12679 2351   < - Macierz A * B
+-7064 7856 -8955 -9006 11494 
+-4782 6947 -7601 -6076 6464 
+
+-----------------------------------------------------------------------------------------------
+
+./generator 30 19 20
+./macierz list 2 1 0 >> wyniki2
+./checker list 30 0 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 21738 have made 4 multiplications
+The process with PID = 22519 have made 4 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+The multiplication didn't manage to end in given time! Give it more time please!
+-----------------------------------------------------------------------------------------------
+
+./generator 30 4 5
+./macierz list 2 2 0 >> wyniki2
+./checker list 30 0 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+
+The process with PID = 19195 have made 30 multiplications
+The process with PID = 19545 have made 30 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+The multiplication of matrixes no 11 on the list went correctly!
+The multiplication of matrixes no 12 on the list went correctly!
+The multiplication of matrixes no 13 on the list went correctly!
+The multiplication of matrixes no 14 on the list went correctly!
+The multiplication of matrixes no 15 on the list went correctly!
+The multiplication of matrixes no 16 on the list went correctly!
+The multiplication of matrixes no 17 on the list went correctly!
+The multiplication of matrixes no 18 on the list went correctly!
+The multiplication of matrixes no 19 on the list went correctly!
+The multiplication of matrixes no 20 on the list went correctly!
+The multiplication of matrixes no 21 on the list went correctly!
+The multiplication of matrixes no 22 on the list went correctly!
+The multiplication of matrixes no 23 on the list went correctly!
+The multiplication of matrixes no 24 on the list went correctly!
+The multiplication of matrixes no 25 on the list went correctly!
+The multiplication of matrixes no 26 on the list went correctly!
+The multiplication of matrixes no 27 on the list went correctly!
+The multiplication of matrixes no 28 on the list went correctly!
+The multiplication of matrixes no 29 on the list went correctly!
+The multiplication of matrixes no 30 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+./generator 30 4 5
+./macierz list 2 2 1 >> wyniki2
+./checker list 30 1 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 20467 have made 30 multiplications
+The process with PID = 21170 have made 30 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+The multiplication of matrixes no 11 on the list went correctly!
+The multiplication of matrixes no 12 on the list went correctly!
+The multiplication of matrixes no 13 on the list went correctly!
+The multiplication of matrixes no 14 on the list went correctly!
+The multiplication of matrixes no 15 on the list went correctly!
+The multiplication of matrixes no 16 on the list went correctly!
+The multiplication of matrixes no 17 on the list went correctly!
+The multiplication of matrixes no 18 on the list went correctly!
+The multiplication of matrixes no 19 on the list went correctly!
+The multiplication of matrixes no 20 on the list went correctly!
+The multiplication of matrixes no 21 on the list went correctly!
+The multiplication of matrixes no 22 on the list went correctly!
+The multiplication of matrixes no 23 on the list went correctly!
+The multiplication of matrixes no 24 on the list went correctly!
+The multiplication of matrixes no 25 on the list went correctly!
+The multiplication of matrixes no 26 on the list went correctly!
+The multiplication of matrixes no 27 on the list went correctly!
+The multiplication of matrixes no 28 on the list went correctly!
+The multiplication of matrixes no 29 on the list went correctly!
+The multiplication of matrixes no 30 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+./generator 10 19 20
+./macierz list 10 5 0 >> wyniki2
+./checker list 10 0 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 22165 have made 10 multiplications
+The process with PID = 22560 have made 10 multiplications
+The process with PID = 22955 have made 10 multiplications
+The process with PID = 23350 have made 10 multiplications
+The process with PID = 23745 have made 10 multiplications
+The process with PID = 24140 have made 10 multiplications
+The process with PID = 24535 have made 10 multiplications
+The process with PID = 24930 have made 10 multiplications
+The process with PID = 25325 have made 10 multiplications
+The process with PID = 25720 have made 10 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+./generator 10 19 20
+./macierz list 10 5 1 >> wyniki2
+./checker list 10 1 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 26650 have made 10 multiplications
+The process with PID = 27423 have made 10 multiplications
+The process with PID = 28196 have made 10 multiplications
+The process with PID = 28969 have made 10 multiplications
+The process with PID = 29742 have made 10 multiplications
+The process with PID = 30515 have made 10 multiplications
+The process with PID = 31288 have made 10 multiplications
+The process with PID = 32061 have made 10 multiplications
+The process with PID = 382 have made 10 multiplications
+The process with PID = 1230 have made 10 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+./generator 100 20 30
+./macierz list 5 5 0 >> wyniki2
+./checker list 100 0 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 7742 have made 100 multiplications
+The process with PID = 21267 have made 100 multiplications
+The process with PID = 2666 have made 100 multiplications
+The process with PID = 16277 have made 100 multiplications
+The process with PID = 29770 have made 100 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+The multiplication of matrixes no 11 on the list went correctly!
+The multiplication of matrixes no 12 on the list went correctly!
+The multiplication of matrixes no 13 on the list went correctly!
+The multiplication of matrixes no 14 on the list went correctly!
+The multiplication of matrixes no 15 on the list went correctly!
+The multiplication of matrixes no 16 on the list went correctly!
+The multiplication of matrixes no 17 on the list went correctly!
+The multiplication of matrixes no 18 on the list went correctly!
+The multiplication of matrixes no 19 on the list went correctly!
+The multiplication of matrixes no 20 on the list went correctly!
+The multiplication of matrixes no 21 on the list went correctly!
+The multiplication of matrixes no 22 on the list went correctly!
+The multiplication of matrixes no 23 on the list went correctly!
+The multiplication of matrixes no 24 on the list went correctly!
+The multiplication of matrixes no 25 on the list went correctly!
+The multiplication of matrixes no 26 on the list went correctly!
+The multiplication of matrixes no 27 on the list went correctly!
+The multiplication of matrixes no 28 on the list went correctly!
+The multiplication of matrixes no 29 on the list went correctly!
+The multiplication of matrixes no 30 on the list went correctly!
+The multiplication of matrixes no 31 on the list went correctly!
+The multiplication of matrixes no 32 on the list went correctly!
+The multiplication of matrixes no 33 on the list went correctly!
+The multiplication of matrixes no 34 on the list went correctly!
+The multiplication of matrixes no 35 on the list went correctly!
+The multiplication of matrixes no 36 on the list went correctly!
+The multiplication of matrixes no 37 on the list went correctly!
+The multiplication of matrixes no 38 on the list went correctly!
+The multiplication of matrixes no 39 on the list went correctly!
+The multiplication of matrixes no 40 on the list went correctly!
+The multiplication of matrixes no 41 on the list went correctly!
+The multiplication of matrixes no 42 on the list went correctly!
+The multiplication of matrixes no 43 on the list went correctly!
+The multiplication of matrixes no 44 on the list went correctly!
+The multiplication of matrixes no 45 on the list went correctly!
+The multiplication of matrixes no 46 on the list went correctly!
+The multiplication of matrixes no 47 on the list went correctly!
+The multiplication of matrixes no 48 on the list went correctly!
+The multiplication of matrixes no 49 on the list went correctly!
+The multiplication of matrixes no 50 on the list went correctly!
+The multiplication of matrixes no 51 on the list went correctly!
+The multiplication of matrixes no 52 on the list went correctly!
+The multiplication of matrixes no 53 on the list went correctly!
+The multiplication of matrixes no 54 on the list went correctly!
+The multiplication of matrixes no 55 on the list went correctly!
+The multiplication of matrixes no 56 on the list went correctly!
+The multiplication of matrixes no 57 on the list went correctly!
+The multiplication of matrixes no 58 on the list went correctly!
+The multiplication of matrixes no 59 on the list went correctly!
+The multiplication of matrixes no 60 on the list went correctly!
+The multiplication of matrixes no 61 on the list went correctly!
+The multiplication of matrixes no 62 on the list went correctly!
+The multiplication of matrixes no 63 on the list went correctly!
+The multiplication of matrixes no 64 on the list went correctly!
+The multiplication of matrixes no 65 on the list went correctly!
+The multiplication of matrixes no 66 on the list went correctly!
+The multiplication of matrixes no 67 on the list went correctly!
+The multiplication of matrixes no 68 on the list went correctly!
+The multiplication of matrixes no 69 on the list went correctly!
+The multiplication of matrixes no 70 on the list went correctly!
+The multiplication of matrixes no 71 on the list went correctly!
+The multiplication of matrixes no 72 on the list went correctly!
+The multiplication of matrixes no 73 on the list went correctly!
+The multiplication of matrixes no 74 on the list went correctly!
+The multiplication of matrixes no 75 on the list went correctly!
+The multiplication of matrixes no 76 on the list went correctly!
+The multiplication of matrixes no 77 on the list went correctly!
+The multiplication of matrixes no 78 on the list went correctly!
+The multiplication of matrixes no 79 on the list went correctly!
+The multiplication of matrixes no 80 on the list went correctly!
+The multiplication of matrixes no 81 on the list went correctly!
+The multiplication of matrixes no 82 on the list went correctly!
+The multiplication of matrixes no 83 on the list went correctly!
+The multiplication of matrixes no 84 on the list went correctly!
+The multiplication of matrixes no 85 on the list went correctly!
+The multiplication of matrixes no 86 on the list went correctly!
+The multiplication of matrixes no 87 on the list went correctly!
+The multiplication of matrixes no 88 on the list went correctly!
+The multiplication of matrixes no 89 on the list went correctly!
+The multiplication of matrixes no 90 on the list went correctly!
+The multiplication of matrixes no 91 on the list went correctly!
+The multiplication of matrixes no 92 on the list went correctly!
+The multiplication of matrixes no 93 on the list went correctly!
+The multiplication of matrixes no 94 on the list went correctly!
+The multiplication of matrixes no 95 on the list went correctly!
+The multiplication of matrixes no 96 on the list went correctly!
+The multiplication of matrixes no 97 on the list went correctly!
+The multiplication of matrixes no 98 on the list went correctly!
+The multiplication of matrixes no 99 on the list went correctly!
+The multiplication of matrixes no 100 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+./generator 100 20 30
+./macierz list 5 5 1 >> wyniki2
+./checker list 100 1 >> wyniki2
+
+-----------------------------------------------------------------------------------------------
+The process with PID = 15137 have made 100 multiplications
+The process with PID = 10988 have made 100 multiplications
+The process with PID = 6853 have made 100 multiplications
+The process with PID = 2597 have made 100 multiplications
+The process with PID = 30616 have made 100 multiplications
+
+The multiplication of matrixes no 1 on the list went correctly!
+The multiplication of matrixes no 2 on the list went correctly!
+The multiplication of matrixes no 3 on the list went correctly!
+The multiplication of matrixes no 4 on the list went correctly!
+The multiplication of matrixes no 5 on the list went correctly!
+The multiplication of matrixes no 6 on the list went correctly!
+The multiplication of matrixes no 7 on the list went correctly!
+The multiplication of matrixes no 8 on the list went correctly!
+The multiplication of matrixes no 9 on the list went correctly!
+The multiplication of matrixes no 10 on the list went correctly!
+The multiplication of matrixes no 11 on the list went correctly!
+The multiplication of matrixes no 12 on the list went correctly!
+The multiplication of matrixes no 13 on the list went correctly!
+The multiplication of matrixes no 14 on the list went correctly!
+The multiplication of matrixes no 15 on the list went correctly!
+The multiplication of matrixes no 16 on the list went correctly!
+The multiplication of matrixes no 17 on the list went correctly!
+The multiplication of matrixes no 18 on the list went correctly!
+The multiplication of matrixes no 19 on the list went correctly!
+The multiplication of matrixes no 20 on the list went correctly!
+The multiplication of matrixes no 21 on the list went correctly!
+The multiplication of matrixes no 22 on the list went correctly!
+The multiplication of matrixes no 23 on the list went correctly!
+The multiplication of matrixes no 24 on the list went correctly!
+The multiplication of matrixes no 25 on the list went correctly!
+The multiplication of matrixes no 26 on the list went correctly!
+The multiplication of matrixes no 27 on the list went correctly!
+The multiplication of matrixes no 28 on the list went correctly!
+The multiplication of matrixes no 29 on the list went correctly!
+The multiplication of matrixes no 30 on the list went correctly!
+The multiplication of matrixes no 31 on the list went correctly!
+The multiplication of matrixes no 32 on the list went correctly!
+The multiplication of matrixes no 33 on the list went correctly!
+The multiplication of matrixes no 34 on the list went correctly!
+The multiplication of matrixes no 35 on the list went correctly!
+The multiplication of matrixes no 36 on the list went correctly!
+The multiplication of matrixes no 37 on the list went correctly!
+The multiplication of matrixes no 38 on the list went correctly!
+The multiplication of matrixes no 39 on the list went correctly!
+The multiplication of matrixes no 40 on the list went correctly!
+The multiplication of matrixes no 41 on the list went correctly!
+The multiplication of matrixes no 42 on the list went correctly!
+The multiplication of matrixes no 43 on the list went correctly!
+The multiplication of matrixes no 44 on the list went correctly!
+The multiplication of matrixes no 45 on the list went correctly!
+The multiplication of matrixes no 46 on the list went correctly!
+The multiplication of matrixes no 47 on the list went correctly!
+The multiplication of matrixes no 48 on the list went correctly!
+The multiplication of matrixes no 49 on the list went correctly!
+The multiplication of matrixes no 50 on the list went correctly!
+The multiplication of matrixes no 51 on the list went correctly!
+The multiplication of matrixes no 52 on the list went correctly!
+The multiplication of matrixes no 53 on the list went correctly!
+The multiplication of matrixes no 54 on the list went correctly!
+The multiplication of matrixes no 55 on the list went correctly!
+The multiplication of matrixes no 56 on the list went correctly!
+The multiplication of matrixes no 57 on the list went correctly!
+The multiplication of matrixes no 58 on the list went correctly!
+The multiplication of matrixes no 59 on the list went correctly!
+The multiplication of matrixes no 60 on the list went correctly!
+The multiplication of matrixes no 61 on the list went correctly!
+The multiplication of matrixes no 62 on the list went correctly!
+The multiplication of matrixes no 63 on the list went correctly!
+The multiplication of matrixes no 64 on the list went correctly!
+The multiplication of matrixes no 65 on the list went correctly!
+The multiplication of matrixes no 66 on the list went correctly!
+The multiplication of matrixes no 67 on the list went correctly!
+The multiplication of matrixes no 68 on the list went correctly!
+The multiplication of matrixes no 69 on the list went correctly!
+The multiplication of matrixes no 70 on the list went correctly!
+The multiplication of matrixes no 71 on the list went correctly!
+The multiplication of matrixes no 72 on the list went correctly!
+The multiplication of matrixes no 73 on the list went correctly!
+The multiplication of matrixes no 74 on the list went correctly!
+The multiplication of matrixes no 75 on the list went correctly!
+The multiplication of matrixes no 76 on the list went correctly!
+The multiplication of matrixes no 77 on the list went correctly!
+The multiplication of matrixes no 78 on the list went correctly!
+The multiplication of matrixes no 79 on the list went correctly!
+The multiplication of matrixes no 80 on the list went correctly!
+The multiplication of matrixes no 81 on the list went correctly!
+The multiplication of matrixes no 82 on the list went correctly!
+The multiplication of matrixes no 83 on the list went correctly!
+The multiplication of matrixes no 84 on the list went correctly!
+The multiplication of matrixes no 85 on the list went correctly!
+The multiplication of matrixes no 86 on the list went correctly!
+The multiplication of matrixes no 87 on the list went correctly!
+The multiplication of matrixes no 88 on the list went correctly!
+The multiplication of matrixes no 89 on the list went correctly!
+The multiplication of matrixes no 90 on the list went correctly!
+The multiplication of matrixes no 91 on the list went correctly!
+The multiplication of matrixes no 92 on the list went correctly!
+The multiplication of matrixes no 93 on the list went correctly!
+The multiplication of matrixes no 94 on the list went correctly!
+The multiplication of matrixes no 95 on the list went correctly!
+The multiplication of matrixes no 96 on the list went correctly!
+The multiplication of matrixes no 97 on the list went correctly!
+The multiplication of matrixes no 98 on the list went correctly!
+The multiplication of matrixes no 99 on the list went correctly!
+The multiplication of matrixes no 100 on the list went correctly!
+-----------------------------------------------------------------------------------------------
+
+

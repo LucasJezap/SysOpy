@@ -1,0 +1,232 @@
+O zadaniu 1 nie ma sie co rozpisywac. Zadanie robi to co ma robic a wiec dla danego katalogu odwiedza wszystkie podkatalogi i wykonuje na nich
+komende "ls -l". Przed wywolaniem wypisuje odpowiednia sciezke wzgledna oraz numer PID procesu. Ponizej przyklad dzialania dla wywolan:
+
+./zad1 "/home/yyy/Desktop" -atime -10 -mtime -10 -maxdepth 3
+./zad1 "/home/yyy/Desktop" -atime 0 -mtime 0 -maxdepth 3
+./zad1 "/home/yyy/Desktop" -atime -5 -mtime +5 -maxdepth 3
+
+
+
+
+./zad1 "/home/yyy/Desktop" -atime -10 -mtime -10 -maxdepth 3
+
+------------------------------------------------------------------
+.
+PID = 26019
+total 12
+drwxr-xr-x 13 yyy yyy 4096 mar  3 22:03 C_Course
+drwxrwxr-x  5 yyy yyy 4096 mar 16 15:37 CppClasses
+drwxrwxr-x  5 yyy yyy 4096 mar 17 18:22 SysOpy
+------------------------------------------------------------------
+./SysOpy
+PID = 26020
+total 12
+drwxrwxr-x 3 yyy yyy 4096 mar 17 19:01 Lab1
+drwxr-xr-x 3 yyy yyy 4096 mar 12 19:02 Lab2
+drwxr-xr-x 3 yyy yyy 4096 mar 17 18:22 Lab3
+------------------------------------------------------------------
+./SysOpy/Lab3
+PID = 26021
+total 4
+drwxr-xr-x 4 yyy yyy 4096 mar 21 15:17 cw03
+------------------------------------------------------------------
+./SysOpy/Lab3/cw03
+PID = 26022
+total 112
+-rw-r--r-- 1 yyy yyy 25593 mar 21 15:16 wyniki2
+drwxr-xr-x 2 yyy yyy  4096 mar 21 15:20 zad1
+drwxr-xr-x 2 yyy yyy 77824 mar 21 15:16 zad2
+------------------------------------------------------------------
+./SysOpy/Lab2
+PID = 26023
+total 4
+drwxr-xr-x 4 yyy yyy 4096 mar 15 10:57 cw02
+------------------------------------------------------------------
+./SysOpy/Lab2/cw02
+PID = 26024
+total 36
+-rw-r--r-- 1 yyy yyy  8907 mar 15 10:57 wyniki1
+-rw-r--r-- 1 yyy yyy 13023 mar 14 20:23 wyniki2
+drwxr-xr-x 2 yyy yyy  4096 mar 13 23:42 zad1
+drwxr-xr-x 2 yyy yyy  4096 mar 14 20:23 zad2
+------------------------------------------------------------------
+./SysOpy/Lab1
+PID = 26025
+total 4
+drwxr-xr-x 6 yyy yyy 4096 mar  9 20:57 cw01
+------------------------------------------------------------------
+./CppClasses
+PID = 26027
+total 8
+drwxrwxr-x 2 yyy yyy 4096 mar 10 13:49 Lab1
+drwxr-xr-x 3 yyy yyy 4096 mar 16 22:58 Lab2
+------------------------------------------------------------------
+./CppClasses/Lab2
+PID = 26029
+total 7600
+drwxr-xr-x 7 yyy yyy    4096 mar 16 22:56 Lab2_Jezapkowicz
+-rw-r--r-- 1 yyy yyy 7775332 mar 16 22:58 Lab2_Jezapkowicz.zip
+------------------------------------------------------------------
+./CppClasses/Lab2/Lab2_Jezapkowicz
+PID = 26030
+total 996
+-rwxr-xr-x 1 yyy yyy 951448 mar 16 22:56 exercise
+-rw-r--r-- 1 yyy yyy    455 mar 16 13:33 kolokwiumLinux.pro
+-rw-r--r-- 1 yyy yyy  22317 mar 16 14:15 kolokwiumLinux.pro.user
+drwxr-xr-x 2 yyy yyy   4096 mar 16 14:15 konfiguracjaMinGW
+drwxr-xr-x 3 yyy yyy   4096 mar 16 14:15 libs
+-rw-r--r-- 1 yyy yyy    514 mar 16 22:54 main.cc
+-rw-r--r-- 1 yyy yyy   1751 mar 16 22:54 matrix.cc
+-rw-r--r-- 1 yyy yyy    106 mar 16 10:22 matrixElement.h
+-rw-r--r-- 1 yyy yyy   1092 mar 16 22:54 matrix.h
+-rw-r--r-- 1 yyy yyy   6174 mar 16 22:41 matrixTests.cc
+drwxr-xr-x 2 yyy yyy   4096 mar 16 14:15 utils
+
+
+
+
+
+./zad1 "/home/yyy/Desktop" -atime 0 -mtime 0 -maxdepth 3
+
+
+------------------------------------------------------------------
+./SysOpy/Lab3/cw03
+PID = 26163
+total 112
+-rw-r--r-- 1 yyy yyy 25593 mar 21 15:16 wyniki2
+drwxr-xr-x 2 yyy yyy  4096 mar 21 15:24 zad1
+drwxr-xr-x 2 yyy yyy 77824 mar 21 15:16 zad2
+
+
+
+
+
+./zad1 "/home/yyy/Desktop" -atime -5 -mtime +5 -maxdepth 3
+
+
+------------------------------------------------------------------
+.
+PID = 26368
+total 12
+drwxr-xr-x 13 yyy yyy 4096 mar  3 22:03 C_Course
+drwxrwxr-x  5 yyy yyy 4096 mar 16 15:37 CppClasses
+drwxrwxr-x  5 yyy yyy 4096 mar 17 18:22 SysOpy
+------------------------------------------------------------------
+./SysOpy/Lab2
+PID = 26372
+total 4
+drwxr-xr-x 4 yyy yyy 4096 mar 15 10:57 cw02
+------------------------------------------------------------------
+./SysOpy/Lab2/cw02
+PID = 26373
+total 36
+-rw-r--r-- 1 yyy yyy  8907 mar 15 10:57 wyniki1
+-rw-r--r-- 1 yyy yyy 13023 mar 14 20:23 wyniki2
+drwxr-xr-x 2 yyy yyy  4096 mar 13 23:42 zad1
+drwxr-xr-x 2 yyy yyy  4096 mar 14 20:23 zad2
+------------------------------------------------------------------
+./SysOpy/Lab1/cw01
+PID = 26375
+total 464
+-rw-r--r-- 1 yyy yyy    5410 mar  8 18:34 raport2.txt
+-rw-r--r-- 1 yyy root  23849 mar  9 10:36 results3a.txt
+-rw-r--r-- 1 yyy yyy   70558 mar  9 20:51 results3b.txt
+drwxr-xr-x 2 yyy yyy    4096 mar 10 15:17 zad1
+drwxr-xr-x 2 yyy yyy  303104 mar 19 23:33 zad2
+drwxr-xr-x 2 yyy yyy   36864 mar 10 15:22 zad3a
+drwxr-xr-x 2 yyy yyy   20480 mar 10 15:22 zad3b
+------------------------------------------------------------------
+./CppClasses/.vscode
+PID = 26377
+total 4
+-rw-rw-r-- 1 yyy yyy 63 mar 10 10:12 settings.json
+------------------------------------------------------------------
+./CppClasses/Lab1
+PID = 26380
+total 40
+-rwxrwxr-x 1 yyy yyy 33176 mar 10 13:49 Lab1
+-rw-rw-r-- 1 yyy yyy  2296 mar 10 13:53 Lab1.cpp
+------------------------------------------------------------------
+./C_Course
+PID = 26381
+total 52
+drwxrwxr-x 2 yyy yyy  4096 mar  3 21:31 'Lesson 10'
+drwxrwxr-x 2 yyy yyy  4096 mar  3 21:49 'Lesson 11'
+drwxr-xr-x 2 yyy yyy  4096 mar  2 21:45 'Lesson 2'
+drwxr-xr-x 2 yyy yyy  4096 mar  2 21:45 'Lesson 3'
+drwxrwxr-x 2 yyy yyy  4096 mar  2 22:28 'Lesson 4'
+drwxrwxr-x 2 yyy yyy  4096 mar  2 23:50 'Lesson 5'
+drwxrwxr-x 2 yyy yyy  4096 mar  3 00:02 'Lesson 6'
+drwxrwxr-x 2 yyy yyy  4096 mar  3 00:22 'Lesson 7'
+drwxrwxr-x 2 yyy yyy  4096 mar  3 14:50 'Lesson 8'
+drwxrwxr-x 2 yyy yyy  4096 mar  3 15:07 'Lesson 9'
+-rwxrwxr-x 1 yyy yyy 11144 mar  3 22:03  twodim1.exe
+------------------------------------------------------------------
+./C_Course/Lesson 5
+PID = 26382
+total 16
+-rw-rw-r-- 1 yyy yyy 602 mar  2 22:44 arrays1.c
+-rw-rw-r-- 1 yyy yyy 649 mar  2 22:48 arrays2.c
+-rw-rw-r-- 1 yyy yyy 332 mar  2 22:55 arrays3.c
+-rw-rw-r-- 1 yyy yyy 258 mar  2 23:15 arrays4.c
+------------------------------------------------------------------
+./C_Course/.vscode
+PID = 26383
+total 8
+-rw-rw-r-- 1 yyy yyy 935 mar  2 21:40 launch.json
+-rw-rw-r-- 1 yyy yyy 381 mar  2 21:42 tasks.json
+------------------------------------------------------------------
+./C_Course/Lesson 6
+PID = 26384
+total 4
+-rw-rw-r-- 1 yyy yyy 118 mar  3 00:03 strings1.c
+------------------------------------------------------------------
+./C_Course/Lesson 11
+PID = 26385
+total 4
+-rw-rw-r-- 1 yyy yyy 489 mar  3 22:03 twodim1.c
+------------------------------------------------------------------
+./C_Course/Lesson 3
+PID = 26386
+total 4
+-rw-rw-r-- 1 yyy yyy 513 mar  2 21:58 struct1.c
+------------------------------------------------------------------
+./C_Course/Lesson 7
+PID = 26387
+total 16
+-rw-rw-r-- 1 yyy yyy 382 mar  3 00:15 strfun1.c
+-rw-rw-r-- 1 yyy yyy 301 mar  3 00:19 strfun2.c
+-rw-rw-r-- 1 yyy yyy 460 mar  3 00:22 strfun3.c
+-rw-rw-r-- 1 yyy yyy 587 mar  3 00:28 strfun4.c
+------------------------------------------------------------------
+./C_Course/Lesson 10
+PID = 26388
+total 4
+-rw-rw-r-- 1 yyy yyy 480 mar  3 21:45 memory1.c
+------------------------------------------------------------------
+./C_Course/Lesson 2
+PID = 26389
+total 8
+-rw-r--r-- 1 yyy yyy 120 mar  2 21:01 dbg1.c
+-rw-rw-r-- 1 yyy yyy 217 mar  2 21:42 dbg2.c
+------------------------------------------------------------------
+./C_Course/Lesson 8
+PID = 26390
+total 12
+-rw-rw-r-- 1 yyy yyy 227 mar  3 14:10 pointers1.c
+-rw-rw-r-- 1 yyy yyy 231 mar  3 14:46 pointers2.c
+-rw-rw-r-- 1 yyy yyy 347 mar  3 14:53 pointers3.c
+------------------------------------------------------------------
+./C_Course/Lesson 4
+PID = 26391
+total 16
+-rw-rw-r-- 1 yyy yyy 355 mar  2 22:08 preprocessor1.c
+-rw-rw-r-- 1 yyy yyy 170 mar  2 22:19 preprocessor2.c
+-rw-rw-r-- 1 yyy yyy 162 mar  2 22:26 preprocessor3.c
+-rw-rw-r-- 1 yyy yyy 519 mar  2 22:33 preprocessor4.c
+------------------------------------------------------------------
+./C_Course/Lesson 9
+PID = 26392
+total 8
+-rw-rw-r-- 1 yyy yyy 104 mar  3 15:10 pointers1.c
+-rw-rw-r-- 1 yyy yyy 268 mar  3 15:16 pointers2.c
