@@ -7,13 +7,13 @@ execute:
 	make execute_tests
 
 clean:
-	find . -maxdepth 1 ! -name 'checker' ! -name 'checker.c' ! -name 'wyniki2' ! -name 'macierz' ! -name 'generator' ! -name 'macierz.c' ! -name 'makefile' ! -name 'generator.c' ! -name 'list' -type f -exec rm -v {} +
+	find . -maxdepth 1 ! -name 'checker.c' ! -name 'wyniki2' ! -name 'macierz.c' ! -name 'makefile' ! -name 'generator.c'  -type f -exec rm -v {} +
 
 execute_tests:
 	rm wyniki2
-	./generator 30 4 5
-	./macierz list 2 2 0 >> wyniki2
-	./checker list 30 0 >> wyniki2
+	./generator 5 5 6
+	./macierz list 2 1 0 >> wyniki2
+	./checker list 5 0 >> wyniki2
 	make clean
 	
 

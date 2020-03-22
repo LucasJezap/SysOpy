@@ -1,7 +1,9 @@
 #define _POSIX_C_SOURCE 1
+#define _DEFAULT_SOURCE
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/file.h>
+#include <sys/types.h>
 #include <sys/times.h>
 #include <errno.h>
 #include <libgen.h>
@@ -43,6 +45,8 @@ int process_child(int n, int mode) {
             FILE *x = fopen(strtok(buffer," "),"r");
             FILE *y = fopen(strtok(NULL," "),"r");
             char *z = strtok(NULL,"\n");
+            int s = open(z,O_WRONLY);
+            flock(s,LOCK_EX);
             char buffer2[500];
             fseek(x,0,SEEK_SET);
             timer_stop();
@@ -100,6 +104,7 @@ int process_child(int n, int mode) {
             multiplications++;
             fclose(x);
             fclose(y);
+            close(s);
         }
     }
     return multiplications;
@@ -150,17 +155,27 @@ void calculate_sizes() {
 
 void write_to_file() {
     for (int i=0; i<number_of_pairs; i++) {
-            char command[500];
-            strcpy(command,"paste -s ");
+            char *arg[result_rows[i]+4];
+            for(int j=0; j<result_rows[i]+3; j++) arg[j] = (char *)calloc(20,sizeof(char));
+            arg[0]="paste";
+            arg[1]="-d ";
+            arg[2]="-s";
             char tmp[50];
             for(int j=0; j<result_rows[i]; j++) {
-                sprintf(tmp,"result_%d_%d ",i,j);
-                strcat(command,tmp);
+                sprintf(tmp,"result_%d_%d",i,j);
+                strcpy(arg[j+3],tmp);
             }
-            sprintf(tmp," >> m%d_c",i+1);
-            strcat(command,tmp);
-            
-            system(command);
+            arg[result_rows[i]+3] = NULL;
+            char name[10];
+            sprintf(name,"m%d_c",i+1);
+            pid_t child = vfork();
+            if(child == 0) {
+                int fd = open(name,O_RDWR);
+                dup2(fd,1);  
+                close(fd);
+                execv("/usr/bin/paste",arg);
+            }
+            wait(NULL);
     }
 }
 
@@ -195,6 +210,16 @@ int main(int argc, char *argv[]) {
                     system(command);
                 j++;
             }
+    }
+
+    if(strcmp(argv[4],"0") == 0) {
+        char comm[50];
+        for(int i=0; i<number_of_pairs; i++) {
+            for(int j=0; j<result_rows[i]; j++) {
+                sprintf(comm,"touch result_%d_%d",i,j);
+                system(comm);
+            }
+        }
     }
 
     for(int i=0; i<number_of_processes; i++) {

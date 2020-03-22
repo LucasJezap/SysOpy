@@ -8,7 +8,10 @@ int number_of_pairs;
 int mode;
 
 
-void get_matrixes(int n, int **A, int **B, int **C) {
+void get_matrixes(int n) {
+    int **A;
+    int **B;
+    int **C;
     FILE *l = fopen(file,"r");
     int i = 0;
     char buffer[500];
@@ -32,7 +35,7 @@ void get_matrixes(int n, int **A, int **B, int **C) {
     while (fgets(buffer,sizeof(buffer),c) != NULL) check1++;
     for(int j=0; j<strlen(buffer); j++)
         if(buffer[j] == ' ') check2++;
-    if(check1 != rows1) {
+    if(check1 != rows1 || check2 != columns2) {
         printf("The multiplication didn't manage to end in given time! Give it more time please!\n");
         return;
     }
@@ -111,10 +114,7 @@ int main(int argc, char *argv[]) {
     mode=atoi(argv[3]);
 
     for(int i=0; i<number_of_pairs; i++) {
-        int **A;
-        int **B;
-        int **C;
-        get_matrixes(i+1,A,B,C);
+        get_matrixes(i+1);
     }
     printf("\n\n\n");
     return 0;
