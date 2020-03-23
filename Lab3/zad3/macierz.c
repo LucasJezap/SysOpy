@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <sys/file.h>
 #include <sys/types.h>
+#include <sys/resource.h>
 #include <sys/times.h>
 #include <errno.h>
 #include <libgen.h>
@@ -17,6 +18,8 @@ FILE *l;
 int max_seconds;
 int number_of_processes;
 int number_of_pairs;
+int virtual_size;
+int cpu_time;
 int *result_rows;
 int *matrix_sizes;
 int *matrix_jumps;
@@ -181,7 +184,7 @@ void write_to_file() {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 5) {
+    if (argc != 7) {
         printf("Wrong number of arguments! Provide it like this\n./macierz [list] [number_of_processes] [max_time] [mode]\n");
         return -1;
     }
@@ -189,9 +192,12 @@ int main(int argc, char *argv[]) {
     l = fopen(argv[1],"r");
     number_of_processes = atoi(argv[2]);
     max_seconds = atoi(argv[3]);
+    cpu_time = atoi(argv[4]);
+    virtual_size = atoi(argv[5]);
 
     pid_t pids[number_of_processes];
     pid_t statuses[number_of_processes];
+    struct rusage *us = (struct rusage *)calloc(number_of_processes,sizeof(struct rusage));
 
     calculate_number();
     calculate_sizes();
@@ -231,14 +237,24 @@ int main(int argc, char *argv[]) {
         }
         else if(child > 0) pids[i]=child;
         else {
+            struct rlimit *cpu = (struct rlimit*)calloc(1,sizeof(struct rlimit));
+            struct rlimit *space = (struct rlimit*)calloc(1,sizeof(struct rlimit));
+            cpu->rlim_cur = cpu_time;
+            cpu->rlim_max = cpu_time;
+            space->rlim_max = space->rlim_cur = virtual_size * 1e7;
+            setrlimit(RLIMIT_AS,space);
+            setrlimit(RLIMIT_CPU,cpu);
+            free(cpu);
+            free(space);
             exit(process_child(i,atoi(argv[4])));
         }
-        pids[i]=waitpid(pids[i],&statuses[i],0);
+        pids[i]=wait4(pids[i],&statuses[i],0,&us[i]);
     }
 
     for(int i=0; i<number_of_processes; i++) {
-   
         printf("The process with PID = %d have made %d multiplications\n",(int)pids[i],WEXITSTATUS(statuses[i]));
+        printf("It used:\nUser CPU time = %lf (seconds)\nSystem CPU time = %lf (seconds)\nMaximum resident set size = %lf (megabytes)\n\n",
+            us[i].ru_utime.tv_sec+us[i].ru_utime.tv_usec/(1e6),us[i].ru_utime.tv_sec+us[i].ru_stime.tv_usec/(1e6),us[i].ru_maxrss/(1e3));
     }
 
     if(strcmp(argv[4],"0") == 0)

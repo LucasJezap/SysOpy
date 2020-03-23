@@ -2,6 +2,8 @@ Ponizej zebralem przykladowe wywolania funkcji generator,macierz oraz checker (s
 okazal sie za maly przez co nie wszystkie macierze zostaly wymnozone poprawnie (nie zostaly calkowicie wymnozone). W kolejnych wywolaniach dobralem
 taki czas zeby macierze zdazyly sie poprawnie wykonac. Kazdy przyklad poprzedzony jest odpowiednim wywolaniem w celu sprawdzenia czy dane sa poprawne.
 
+1 mnozenie -> przemnozenie bloku macierzy A przez blok macierzy B
+
 mode == 0 -> do wielu plikow
 mode == 1 -> do jednego pliku
 
