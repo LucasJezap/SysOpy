@@ -40,6 +40,9 @@ int main(int argc, char *argv[]) {
     number_of_signals = atoi(argv[2]);
 
     struct sigaction act1,act2;
+    /* suspending is a must for no deadlocks */
+    sigset_t mask,oldmask;
+    sigemptyset(&mask);
     /* sending signals and setting appropriate handlers */
     if (strcmp(argv[3],"kill") == 0) {
         /* handlers */
@@ -51,10 +54,12 @@ int main(int argc, char *argv[]) {
         act2.sa_sigaction = handler_2;        
         sigaction(SIGUSR1,&act1,NULL);
         sigaction(SIGUSR2,&act2,NULL);
-
+        
+        sigaddset(&mask,SIGUSR1);
+        sigprocmask(SIG_BLOCK,&mask,&oldmask);
         for(int i=0; i<number_of_signals; i++) {
             kill(catcher_pid,SIGUSR1);
-            //pause();
+            sigsuspend(&oldmask);
         }
         kill(catcher_pid,SIGUSR2);
     }
@@ -69,11 +74,13 @@ int main(int argc, char *argv[]) {
         sigaction(SIGUSR1,&act1,NULL);
         sigaction(SIGUSR2,&act2,NULL);
 
+        sigaddset(&mask,SIGUSR1);
+        sigprocmask(SIG_BLOCK,&mask,&oldmask);
         union sigval s;
         for(int i=0; i<number_of_signals; i++) {
             s.sival_int = i;
             sigqueue(catcher_pid,SIGUSR1,s);
-            pause();
+            sigsuspend(&oldmask);
         }
         s.sival_int = number_of_signals;
         sigqueue(catcher_pid,SIGUSR2,s);
@@ -88,9 +95,12 @@ int main(int argc, char *argv[]) {
         act2.sa_sigaction = handler_2;        
         sigaction(SIGRTMIN+2,&act1,NULL);
         sigaction(SIGRTMIN+3,&act2,NULL);
+
+        sigaddset(&mask,SIGRTMIN+2);
+        sigprocmask(SIG_BLOCK,&mask,&oldmask);
         for(int i=0; i<number_of_signals; i++) {
             kill(catcher_pid,SIGRTMIN+2);
-            pause();
+            sigsuspend(&oldmask);
         }
         kill(catcher_pid,SIGRTMIN+3);
     }
