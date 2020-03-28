@@ -5,3 +5,4 @@ that while making this code many bad words happened to come out of my mouth so i
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab1"> Laboratories 1  
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab2"> Laboratories 2  
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab3"> Laboratories 3  
+<a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab4"> Laboratories 4  
