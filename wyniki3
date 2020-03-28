@@ -1,0 +1,59 @@
+Flaga SA_SIGINFO pozwala skutecznie wydobywac informacje na temat dostarczonego do procesu sygnalu. Wiele pol tej struktury jest wspolnych
+dla wszystkich sygnalow (np. numer) , istnieja jednak pola dostepne tylko dla pewnych sygnalow (np. Adres). Ponizej wyniki wypisania pewnych pol
+wspolnych i unikalnych tej struktury dla kilku wybranych sygnalow.
+
+Signal name - nazwa sygnalu, niedostepna w strukturze, wypisywana przez program zaleznie od sygnalu
+Signal number - numer sygnalu, zawsze ustawiony w strukturze siginfo_t
+Sending process PID - numer procesu, w ktorym wystapil dany sygnal
+User sending process UID - numer UID uzytkownika, ktory wywolal proces, w ktorym wystapil dany sygnal
+Signal code - kod sygnalu, zawsze ustawiony w strukturze siginfo_t
+Signal error no - wartosc errno zwiazana z danym sygnalem, bazowo 0 (brak bledu)
+Band event - pasmo priorytetowe dla sygnalow SIGPOLL/SIGIO, pole to nie wystepuje w kazdym sygnale
+Address at which fault occurred - adres instrukcji w ktorej wystapil blad, pole to nie wystepuje w kazdym sygnale
+Child exit code - kod powrotu procesu dziecka wytworzonego przy pomocy fork()
+
+-------------------------------------------------------------------------
+
+Signal name = SIGIO
+Signal number = 29
+Sending process PID = 3353
+User sending process UID = 1000
+Signal code = -6 (send by user)
+Signal error no = 0
+Band event = 4294967299353
+
+
+Signal name = SIGILL
+Signal number = 4
+Sending process PID = 3367
+User sending process UID = 1000
+Signal code = -6 (send by user)
+Signal error no = 0
+Address at which fault occurred = 0x3e800000d27
+
+
+Signal name = SIGFPE
+Signal number = 8
+Sending process PID = 3385
+User sending process UID = 1000
+Signal code = -6 (send by user)
+Signal error no = 0
+Address at which fault occurred = 0x3e800000d39
+
+
+Signal name = SIGSEGV
+Signal number = 11
+Sending process PID = 6496
+User sending process UID = 1000
+Signal code = -6 (send by user)
+Signal error no = 0
+Address at which fault occurred = 0x3e800001960
+
+
+Signal name = SIGCHLD
+Signal number = 20
+Sending process PID = 3407
+User sending process UID = 1000
+Signal code = -6 (send by user)
+Signal error no = 0
+Child exit code = 0

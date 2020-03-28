@@ -1,0 +1,122 @@
+Ponizej prezentuje przyklad dzialania programu sender oraz checker. Dla kazdej z opcji (KILL,SIGQUEUE,SIGRT) przeprowadzilem
+trzy proby dla odpowiednio 1000,100000,10000000 sygnalow. Wyniki sa podane w ukladzie:
+------------
+KOMENDY
+------------
+CATCHER 
+------------
+SENDER
+------------
+Z przeprowadzonych doswiadczen mozna wyciagnac kilka wnioskow:
+1. Podczas przesylania sygnalow przez funkcje kill() o wiele wiecej sygnalow sie "gubilo"
+2. Procent odebranych sygnalow rosnie z iloscia wyslanych sygnalow.
+3. Sygnaly czasu rzeczywistego o wiele mniej gubia sie niz sygnaly uzytkownika SIGUSR1.
+
+                                    Option 1: KILL
+------------------------------------------------------------------------------------------------
+./catcher kill
+./sender 8423 1000 kill
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8423
+Catcher program catched 1 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 1000 signals
+Sender received 1 signals
+------------------------------------------------------------------------------------------------
+
+
+./catcher kill
+./sender 8437 100000 kill
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8437
+Catcher program catched 24394 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 100000 signals
+Sender received 2065 signals
+------------------------------------------------------------------------------------------------
+
+
+./catcher kill
+./sender 8445 10000000 kill
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8445
+Catcher program catched 2398604 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 10000000 signals
+Sender received 559448 signals
+------------------------------------------------------------------------------------------------
+
+                                    Option 2: SIGQUEUE
+------------------------------------------------------------------------------------------------
+./catcher sigqueue
+./sender 8455 1000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8455
+Catcher program catched 1 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 1000 signals
+Sender received 1 signals
+Catcher send 1 signals
+------------------------------------------------------------------------------------------------
+
+./catcher sigqueue
+./sender 8468 100000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8468
+Catcher program catched 56679 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 100000 signals
+Sender received 30384 signals
+Catcher send 56679 signals
+------------------------------------------------------------------------------------------------
+
+./catcher sigqueue
+./sender 8481 10000000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8481
+Catcher program catched 6017477 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 10000000 signals
+Sender received 3568776 signals
+Catcher send 6017477 signals
+------------------------------------------------------------------------------------------------
+                                    Option 3: SIGRT
+------------------------------------------------------------------------------------------------
+./catcher sigrt
+./sender 8497 1000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 8497
+Catcher program catched 1000 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 1000 signals
+Sender received 1000 signals
+------------------------------------------------------------------------------------------------
+
+./catcher sigrt
+./sender 1843 100000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 1843
+Catcher program catched 72561 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 100000 signals
+Sender received 52829 signals
+------------------------------------------------------------------------------------------------
+
+./catcher sigrt
+./sender 2148 10000000 sigqueue
+------------------------------------------------------------------------------------------------
+Catcher program is ready to work!
+My PID = 2148
+Catcher program catched 5552820 signals
+------------------------------------------------------------------------------------------------
+Sender should receive 10000000 signals
+Sender received 3064489 signals
+------------------------------------------------------------------------------------------------

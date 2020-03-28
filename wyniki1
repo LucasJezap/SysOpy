@@ -1,0 +1,104 @@
+Ponizej zamieszczam przykladowe dzialania programu z nieskonczona petla.
+
+Przerwanie programu od razu przez SIGINT
+---------------------------------------------------------
+
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+^C
+SIGINT signal was delivered
+
+---------------------------------------------------------
+Przerwanie programu przez SIGINT ale po sygnale SIGTSTP
+---------------------------------------------------------
+
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+^Z
+
+Waiting for CTRL+Z - process continuation or CTRL+C - end of program
+
+^C
+SIGINT signal was delivered
+
+---------------------------------------------------------
+Przerwanie programu przez SIGINT ale po kilku sygnalach SIGTSTP
+---------------------------------------------------------
+
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+^Z
+
+Waiting for CTRL+Z - process continuation or CTRL+C - end of program
+
+^Ztotal 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+^Z
+
+Waiting for CTRL+Z - process continuation or CTRL+C - end of program
+
+^Ztotal 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+total 16
+-rw-rw-r-- 1 yyy yyy  768 mar 24 13:45 main.c
+-rw-r--r-- 1 yyy yyy    0 mar 24 13:46 wyniki1
+-rwxr-xr-x 1 yyy yyy 8640 mar 24 13:45 zad1
+^Z
+
+Waiting for CTRL+Z - process continuation or CTRL+C - end of program
+
+^C
+SIGINT signal was delivered
+
+
+---------------------------------------------------------
