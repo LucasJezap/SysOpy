@@ -1,0 +1,77 @@
+Kod zrodlowy jest odpowiednio opisany/skomentowany.
+
+Ponizej prezentuje wyniki dzialania programow dla pliku commands z komendami:
+
+ls -la -R /home/yyy | wc -l
+ls -la -R /home/yyy/Desktop | grep SysOpy | wc -l
+ps -aux | grep root | wc -l
+ps -aux | grep yyy | wc -l
+cat /etc/passwd | grep nologin | wc -l
+
+Jak widac, wyniki sa identyczne z wyjatkiem polecenia ps -aux, dla ktorego wersja
+z popen generuje jeden dodatkowy proces -> dlatego ilosc procesow jest wieksza o 1
+od wersji fork/exec/pipe.
+
+----------------------------------------------------------------------------
+                    WYNIKI DLA WERSJI FORK/EXEC/PIPE
+----------------------------------------------------------------------------
+Now interpreting line:
+ls -la -R /home/yyy | wc -l
+
+The result of the command:
+18307
+----------------------------------------------------------------------------
+Now interpreting line:
+ls -la -R /home/yyy/Desktop | grep SysOpy | wc -l
+
+The result of the command:
+29
+----------------------------------------------------------------------------
+Now interpreting line:
+ps -aux | grep root | wc -l
+
+The result of the command:
+102
+----------------------------------------------------------------------------
+Now interpreting line:
+ps -aux | grep yyy | wc -l
+
+The result of the command:
+82
+----------------------------------------------------------------------------
+Now interpreting line:
+cat /etc/passwd | grep nologin | wc -l
+The result of the command:
+33
+
+----------------------------------------------------------------------------
+                        WYNIKI DLA WERSJI POPEN
+----------------------------------------------------------------------------
+Now interpreting line:
+ls -la -R /home/yyy | wc -l
+
+The result of the command:
+18307
+----------------------------------------------------------------------------
+Now interpreting line:
+ls -la -R /home/yyy/Desktop | grep SysOpy | wc -l
+
+The result of the command:
+29
+----------------------------------------------------------------------------
+Now interpreting line:
+ps -aux | grep root | wc -l
+
+The result of the command:
+103
+----------------------------------------------------------------------------
+Now interpreting line:
+ps -aux | grep yyy | wc -l
+
+The result of the command:
+83
+----------------------------------------------------------------------------
+Now interpreting line:
+cat /etc/passwd | grep nologin | wc -l
+The result of the command:
+33

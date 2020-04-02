@@ -1,0 +1,5 @@
+ls -la -R /home/yyy | wc -l
+ls -la -R /home/yyy/Desktop | grep SysOpy | wc -l
+ps -aux | grep root | wc -l
+ps -aux | grep yyy | wc -l
+cat /etc/passwd | grep nologin | wc -l
