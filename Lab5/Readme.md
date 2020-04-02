@@ -24,8 +24,8 @@ Producent:
 - przyjmuje trzy argumenty: ścieżka do potoku nazwanego, ścieżka do pliku tekstowego z dowolną zawartością, N - liczba znaków   odczytywanych jednorazowo z pliku  
 - otwiera potok nazwany  
 - wielokrotnie (aż do odczytania całego pliku):  
-odczekuje losową ilość czasu (np. 1-2 sekund)  
-zapisuje do potoku nazwanego linię zawierającą swój PID oraz odczytany fragment pliku w następującej formie: #PID#(N odczytanych znaków)   
+  - odczekuje losową ilość czasu (np. 1-2 sekund)  
+  - zapisuje do potoku nazwanego linię zawierającą swój PID oraz odczytany fragment pliku w następującej formie: #PID#(N odczytanych znaków)   
   
 Konsument:  
   
