@@ -10,6 +10,7 @@ prog1 arg1 ... argn1 | prog2 arg1 ... argn2 | ... | progN arg1 ... argnN
 - Interpreter powinien uruchomić wszystkie N poleceń w osobnych procesach, zapewniając przy użyciu potoków nienazwanych oraz funkcji dup2, by wyjście standardowe procesu k było przekierowane do wejścia standardowego procesu (k+1)  
 - Można założyć ograniczenie górne na ilość obsługiwanych argumentów oraz ilość połączonych komend w pojedynczym poleceniu (co najmniej 3).  
 - Po uruchomieniu ciągu programów składających się na pojedyncze polecenie (linijkę) interpreter powinien oczekiwać na zakończenie wszystkich tych programów.  
+  
 Program należy zaimplementować w dwóch wariantach:  
 - Korzystając z funkcji pipe/fork/exec (50%)  
 - Korzystając z popen (10%)  
@@ -24,7 +25,8 @@ Producent:
 - otwiera potok nazwany  
 - wielokrotnie (aż do odczytania całego pliku):  
 odczekuje losową ilość czasu (np. 1-2 sekund)  
-zapisuje do potoku nazwanego linię zawierającą swój PID oraz odczytany fragment pliku w następującej formie: #PID#(N odczytanych znaków)    
+zapisuje do potoku nazwanego linię zawierającą swój PID oraz odczytany fragment pliku w następującej formie: #PID#(N odczytanych znaków)   
+  
 Konsument:  
   
 - przyjmuje trzy argumenty: ścieżka do potoku nazwanego, ścieżka do pliku tekstowego (do którego będzie zapisywany odczytany tekst), N -   liczba znaków odczytywanych jednorazowo z pliku  
