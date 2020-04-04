@@ -1,16 +1,14 @@
 CC = gcc -Wall -std=gnu11 -ggdb
 
 all:
-	$(CC) -o producer producer.c
-	$(CC) -o consumer consumer.c
-	$(CC) -o tester tester.c
+	$(CC) -o popen popen.c
+	make tests
 
 compile:
-	$(CC) -o producer producer.c
-	$(CC) -o consumer consumer.c
-	$(CC) -o tester tester.c
+	$(CC) -o popen popen.c
 
 clean:
-	rm consumer
-	rm producer
-	rm tester
+	rm popen
+
+tests:
+	./popen example
