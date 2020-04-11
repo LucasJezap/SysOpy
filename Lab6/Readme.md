@@ -1,10 +1,11 @@
 # Zadania - Zestaw 6
 # IPC - kolejki komunikatów
-Przydatne funkcje:
+### Przydatne funkcje:
 
 System V:
 
 <sys/msg.h> <sys/ipc.h> - msgget, msgctl, msgsnd, msgrcv, ftok  
+
 POSIX:
 
 <mqueue.h> - mq_open, mq_send, mq_receive, mq_getattr, mq_setattr, mq_close, mq_unlink, mq_notify
@@ -15,14 +16,14 @@ Klient bezpośrednio po uruchomieniu tworzy kolejkę z unikalnym kluczem IPC i w
 Serwer ma umożliwiać łączenie klientów w pary - klienci przechodząc do trybu chatu będą mogli wysyłać sobie bezpośrednio wiadomości bez udziału serwera.
 
 
-Rodzaje zleceń
-LIST:
+## Rodzaje zleceń
+- LIST:
 Zlecenie wypisania listy wszystkich aktywnych klientów wraz z informacja czy są dostępni do połączenia.
-CONNECT id_klienta:
+- CONNECT id_klienta:
 Zlecenie połączenia się z konkretnym klientem. Zleceniodawca wysyła do serwera id_klienta z listy aktywnych klientów. Serwer wysyła mu klucz kolejki klienta z którym chce się połączyć. Następnie serwer wysyła klucz kolejki zleceniodawcy do wybranego klienta. Obaj klienci przechodzą w tryb chatu - wysyłają sobie wiadomości bezpośrednio(bez udziału serwera). Serwer oznacza ich jako niedostępnych do połączenia dla innych klientów. (Należy umożliwić zerwanie połączenia - co skutkuje wysłaniem DISCONNECT do serwera).
-DISCONNECT:
+- DISCONNECT:
 Zlecenie ustawienia klienta jako dostępnego do połączenia.
-STOP:
+- STOP:
 Zgłoszenie zakończenia pracy klienta.  Klient wysyła ten komunikat, kiedy kończy pracę, aby serwer mógł usunąć z listy jego kolejkę. Następnie kończy pracę, usuwając swoją kolejkę. Komunikat ten wysyłany jest również, gdy po stronie klienta zostanie wysłany sygnał SIGINT.
 Zlecenia powinny być obsługiwane zgodnie z priorytetami, najwyższy priorytet ma STOP, potem DISCONNECT oraz LIST i reszta. Można tego dokonać poprzez sterowanie parametrem MTYPE w funkcji msgsnd.
 Poszczególne rodzaje komunikatów należy identyfikować za pomocą typów komunikatów systemu V. Klucze dla kolejek mają być generowane na podstawie ścieżki $HOME. Małe liczby do wygenerowania kluczy oraz rodzaje komunikatów mają być zdefiniowane we wspólnym pliku nagłówkowym. Dla uproszczenia można założyć, że długość komunikatu jest ograniczona pewną stałą (jej definicja powinna znaleźć się w pliku nagłówkowym).
