@@ -1,0 +1,15 @@
+Kod zrodlowy jest odpowiednio opisany/skomentowany.
+
+W celu sprawdzenia poprawnosci dzialania czatu proponuje dla kazdego z zadan przeprowadzic nastepujacy tok myslowy:
+
+- skompilowac pliki zrodlowe komenda 'make compile'
+- otworzyc 5 terminali, w jednym z nich otworzyc serwer (./server) a w pozostalych klientow (./client)
+- analizowac co wypisuje serwer w celu sprawdzenia poprawnosci
+- na ktorymkolwiek z klientow odpalic LIST i zobaczyc czy ilosc i ID sie zgadzaja
+- na jednym z klientow odpalic STOP a na drugim wyslac sygnal SIGINT (Ctrl + C)  i zobaczyc czy wszystko dziala poprzez LIST na innym kliencie
+- na tych dwoch terminalach wlaczyc na nowo klientow (./client) i sprawdzic przez LIST czy wszystko sie zgadza
+- polaczyc w dwie pary klientow -> najpierw wywolac CONNECT a potem podac ID pary i zobaczyc czy przejscie w czat dziala poprawnie
+- poczatowac -> napisany czat dziala na zasadzie tur, raz pisze jeden klient, potem drugi moze mu odpisac, aktualna ture ma ten klient, ktoremu wyswietla sie jego nazwa
+- odlaczyc jeden czat poprzez napisanie DISCONNECT przez kazdego z klientow na czacie (w swojej turze)
+- sprawdzic czy LIST podaje dobre informacje
+- zakonczyc caly serwer poprzez wyslanie sygnalu SIGINT (Ctrl + C) do serwera.

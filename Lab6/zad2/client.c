@@ -9,7 +9,8 @@ int pair_queue_id;
 int in_chat = 0;
 int queue_id;
 int server_queue_id;
-int key;
+int server_pid;
+char path[100];
 int running = 1;
 
 
@@ -18,11 +19,35 @@ void close_client() {
     running = 0;
     /* checking if queue is still open */
     if (queue_id != -1) {
-        if (msgctl(queue_id,IPC_RMID,NULL) == -1)
+        /* creating message to the server */
+        message *msg = (message *)calloc(1,sizeof(message));
+        msg->mtype = STOP;
+        msg->client_id = client_id;
+
+        /* sending message to the server */
+        if (mq_send(server_queue_id,(char *) msg,MSGSZ,5) == -1) {
+            ERROR("Error while sending message to the server!\n");
+        }
+
+        /* informing server about the message */
+        kill(server_pid,SIGUSR1);
+
+        usleep(250000);
+        
+        /* closing server's queue */
+        if (mq_close(server_queue_id) == -1)
+            printf("\nError while closing server queue!\n");
+        else {
+            printf("\nServer queue closed successfully \n");
+        }
+
+        /* closing and deleting client's queue */
+        if (mq_close(queue_id) == -1 || mq_unlink(path) == -1)
             printf("Error while closing queue!\n");
         else {
-            printf("\nQueue deleted successfully and client is about to close\n");
+            printf("Queue deleted successfully and client is about to close\n");
         }
+
     }
 }
 
@@ -34,7 +59,7 @@ void process_list() {
     msg->client_id = client_id;
 
     /* sending message to the server */
-    if (msgsnd(server_queue_id,msg,MSGSZ,0) == -1) {
+    if (mq_send(server_queue_id,(char *) msg,MSGSZ,3) == -1) {
         ERROR("Error while sending message to the server!\n");
     }
 
@@ -42,7 +67,7 @@ void process_list() {
     
     /* receiving back message from the server */ 
     message *msg2 = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg2,MSGSZ,4,0);
+    mq_receive(queue_id,(char *) msg2,MSGSZ,NULL);
     
     /* printing the message */
     printf("%s",msg2->message);
@@ -62,9 +87,10 @@ void process_connect() {
     msg->mtype = CONNECT;
     msg->client_id = client_id;
     msg->pair_id = user2_id;
+    msg->client_pid = getpid();
 
     /* sending message to the server */
-    if (msgsnd(server_queue_id,msg,MSGSZ,0) == -1) {
+    if (mq_send(server_queue_id,(char *) msg,MSGSZ,2) == -1) {
         ERROR("Error while sending message to the server!\n");
     }
 
@@ -72,14 +98,16 @@ void process_connect() {
     
     /* receiving back message from the server */ 
     message *msg2 = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg2,MSGSZ,5,0);
+    mq_receive(queue_id,(char *) msg2,MSGSZ,NULL);
     
     /* printing the message */
     printf("%s",msg2->message);
 
     /* setting connected client id and his queue */
     pair_id = user2_id;
-    pair_queue_id = msg2->queue_id;
+    char pth[20];
+    sprintf(pth,"/%d",msg2->client_pid);
+    pair_queue_id = mq_open(pth,O_WRONLY);
     in_chat = 1;
     turn = 1;
 
@@ -95,7 +123,7 @@ void process_disconnect() {
     msg->pair_id = pair_id;
 
     /* sending message to the server */
-    if (msgsnd(server_queue_id,msg,MSGSZ,0) == -1) {
+    if (mq_send(server_queue_id,(char *) msg,MSGSZ,4) == -1) {
         ERROR("Error while sending message to the server!\n");
     }
 
@@ -103,7 +131,7 @@ void process_disconnect() {
     
     /* receiving back message from the server */ 
     message *msg2 = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg2,MSGSZ,3,0);
+    mq_receive(queue_id,(char *) msg2,MSGSZ,NULL);
     
     /* printing the message */
     printf("\n%s",msg2->message);
@@ -114,20 +142,22 @@ void process_disconnect() {
 }
 
 void process_stop() {
+    printf("LOLOLO");
     /* creating message to the server */
     message *msg = (message *)calloc(1,sizeof(message));
     msg->mtype = STOP;
     msg->client_id = client_id;
-
     /* sending message to the server */
-    if (msgsnd(server_queue_id,msg,MSGSZ,0) == -1) {
+    if (mq_send(server_queue_id,(char *) msg,MSGSZ,5) == -1) {
         ERROR("Error while sending message to the server!\n");
     }
     
     /* receiving back message from the server */ 
     message *msg2 = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg2,MSGSZ,2,0);
-    
+    while(1) {
+        mq_receive(queue_id,(char *) msg2,MSGSZ,NULL);
+        if (msg2->mtype == STOP) break;
+    }
     /* printing the message */
     printf("\n%s",msg2->message);
 
@@ -164,7 +194,7 @@ void chat() {
                 strcpy(msg->message,"Has disconnected from the chat\n");
 
             /* send message */
-            if (msgsnd(pair_queue_id,msg,MSGSZ,0) == -1) 
+            if (mq_send(pair_queue_id,(char *) msg,MSGSZ,1) == -1)
                 ERROR("Error while sending message to the client!\n");
 
             /* end chat */
@@ -180,16 +210,16 @@ void chat() {
         /* receive turn */
         else {
             /* prepare data */
-            struct msqid_ds state;
+            struct mq_attr state;
             message rcv;
 
             /* wait for message */
             while(1) {
-                if(msgctl(queue_id,IPC_STAT, &state) == -1)
+                if(mq_getattr(queue_id,&state) == -1)
                     ERROR("Error while reading current state!\n");
 
-                if (state.msg_qnum > 0) {
-                    msgrcv(queue_id,&rcv,MSGSZ,6,0);
+                if (state.mq_curmsgs > 0) {
+                    mq_receive(queue_id,(char *) &rcv,MSGSZ,NULL);
                     printf("Client%d: %s",pair_id,rcv.message);
                     break;
                 }
@@ -199,6 +229,7 @@ void chat() {
     }
     printf("\n\n----------EXITING CHAT----------\n");
     in_chat = 0;
+    mq_close(pair_queue_id);
 }
 
 /* function waiting for and processing client's input */
@@ -224,9 +255,6 @@ void process_input() {
     else if (strcmp(buffer,"STOP") == 0) {
         process_stop();
     }
-    else if (in_chat) {
-        printf("wow im in chat\n");
-    }
     else {
         printf("Wrong input!\n");
     }
@@ -241,14 +269,16 @@ void handler(int signum) {
 void usr1_handler(int signum) {
     /* receiving back message from the server */ 
     message *msg = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg,MSGSZ,5,0);
+    mq_receive(queue_id,(char *) msg,MSGSZ,NULL);
             
     /* printing the message */
     printf("%s",msg->message);
 
     /* setting connected client id and his queue */
     pair_id = msg->client_id;
-    pair_queue_id = msg->queue_id;
+    char pth[20];
+    sprintf(pth,"/%d",msg->client_pid);
+    pair_queue_id = mq_open(pth,O_WRONLY);
     in_chat = 1;
     turn = 0;
 
@@ -280,29 +310,29 @@ int main() {
     if (atexit(close_client) == -1)
         ERROR("Error while setting exit function with atexit!\n");
 
-    /* setting server queue_id */
-    server_queue_id = msgget(ftok(PATH,PROJ),0);
-    if (server_queue_id == -1)
-        ERROR("Error while accessing server queue!\n");
+    /* creating new queue for path made from pid */
+    sprintf(path,"/%d",getpid());
 
-    /* setting key based on HOME folder */
-    key = ftok(PATH,getpid());
-    if (key == -1) 
-        ERROR("Error while generating key for queue!\n");
+    struct mq_attr attr;
+    attr.mq_maxmsg = MAXMSG;
+    attr.mq_msgsize = MSGSZ;
 
-    /* creating new queue */
-    queue_id = msgget(key,0666 | IPC_CREAT | IPC_EXCL);
+    queue_id = mq_open(path,O_RDONLY | O_CREAT | O_EXCL, 0666,&attr);
     if (queue_id == -1)
         ERROR("Error while creating new queue!\n");
+
+    /* setting server queue_id */
+    server_queue_id = mq_open(PATH,O_WRONLY);
+    if (server_queue_id == -1)
+        ERROR("Error while accessing server queue!\n");
 
     /* creating init message and sending it to server */
     message *msg = (message *)calloc(1,sizeof(message));
     msg->mtype = INIT;
-    msg->queue_key = key;
-    msg->queue_id = queue_id;
+    strcpy(msg->path,path);
     msg->client_pid = getpid();
 
-    if (msgsnd(server_queue_id,msg,MSGSZ,0) == -1) {
+    if (mq_send(server_queue_id,(char *) msg,MSGSZ,6) == -1) {
         ERROR("Error while sending message to the server!\n");
     }    
     free(msg);
@@ -311,8 +341,9 @@ int main() {
 
     /* receiving return message from server with client's unique id */
     message *msg2 = (message *)calloc(1,sizeof(message));
-    msgrcv(queue_id,msg2,MSGSZ,1,0);
+    mq_receive(queue_id,(char *) msg2,MSGSZ,NULL);
     client_id = msg2->client_id;
+    server_pid = msg2->client_pid;
 
     free(msg2);
 
