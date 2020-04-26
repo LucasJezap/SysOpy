@@ -8,3 +8,4 @@ that while making this code many bad words happened to come out of my mouth so i
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab4"> Laboratories 4  
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab5"> Laboratories 5  
 <a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab6"> Laboratories 6  
+<a href="https://github.com/LucasJezap/Sysopy/tree/master/Lab7"> Laboratories 7  
