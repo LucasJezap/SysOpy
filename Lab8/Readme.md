@@ -15,6 +15,7 @@ Program przyjmuje następujące argumenty:
 - sposób podziału obrazu pomiędzy wątki, t.j. jedną z trzech opcji: sign / block / interleaved,  
 - nazwę pliku z wejściowym obrazem,  
 - nazwę pliku wynikowego.  
+  
 Po wczytaniu danych (wejściowy obraz) wątek główny tworzy tyle nowych wątków, ile zażądano w argumencie wywołania. Utworzone wątki równolegle tworzą histogram obrazu. Każdy stworzony wątek odpowiada za wygenerowanie części histogramu obrazu. Po wykonaniu obliczeń wątek kończy pracę i zwraca jako wynik (patrz pthread_exit) czas rzeczywisty spędzony na tworzeniu przydzielonej mu części wyjściowego obrazu. Czas ten należy zmierzyć z dokładnością do mikrosekund.  
   
 Wątek główny czeka na zakończenie pracy przez wątki wykonujące podzadania. Po zakończeniu każdego wątku, wątek główny odczytuje wynik jego działania i wypisuje na ekranie informację o czasie, jaki zakończony wątek poświęcił na zliczanie (wraz z identyfikatorem zakończonego wątku). Dodatkowo, po zakończeniu pracy przez wszystkie stworzone wątki, wątek główny zapisuje powstały histogram (w formie linii zawierających zliczany odcień oraz liczbę jego wystąpień) do pliku wynikowego i wypisuje na ekranie czas rzeczywisty spędzony na wykonaniu zadania (z dokładnością do mikrosekund). W czasie całkowitym należy uwzględnić narzut związany z utworzeniem i zakończeniem wątków (ale bez czasu operacji wejścia/wyjścia).  
