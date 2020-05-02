@@ -8,6 +8,7 @@ Napisz program współbieżnie wyliczający histogram dla obrazu o wymiarze nxm 
   
   - Podział blokowy – k-ty wątek zlicza wartości pikseli w pionowym pasku o współrzędnych x-owych w przedziale od (k−1)∗ceil(N/m) do k∗ceil(N/m)−1, gdzie N to szerokość wyjściowego obrazu a m to liczba stworzonych wątków. (35%)  
   - Podział cykliczny – k-ty wątek zlicza wartości pikseli, których współrzędne x-owe to: k−1, k−1+m, k−1+2∗m, k−1+3∗m, itd. (ponownie, m to liczba stworzonych wątków). (35%)  
+  
 Program przyjmuje następujące argumenty:  
   
 - liczbę wątków,  
