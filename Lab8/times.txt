@@ -1,0 +1,145 @@
+Porownanie czasow dzialania wielowatkowego programu zliczajacego ilosc pikseli.
+
+Rozmiar pliku image to 640 x 480 pikseli.
+
+Kilka waznych wnioskow na temat programu, ktore wynikaja z wynikow ponizej:
+Dla SIGN:
+- czas dzialania poszczegolnych watkow nie zalezy od ich ilosci, kazdy watek przebiega caly obraz wiec w usrednieniu
+zajmuje tyle samo czasu
+- poniewaz kazdy watek zawsze trwa tyle samo (i trwa dlugo bo caly obraz) to czas trwania calego programu dosyc szybko rosnie,
+wynika to z czekania na zakonczenie poszegolnych watkow
+Dla BLOCK i INTERLEAVED:
+- czas dzialania poszczegolnych watkow zmniejsza sie znacznie (proporcjonalnie do liczby watkow) w zaleznosci od ilosci watkow,
+wynika to z tego, ze kazdy watek dostaje coraz mniej obrazu do przeliczenia
+- czas dzialania calego programu nieznacznie sie wydluza poniewaz trzeba czekac na kolejne watki a czym wiecej watkow tym pozniej
+zacznie sie ostatni z nich
+- czas dzialania BLOCK jest korzystniejszy niz INTERLEAVED - wynika to z trudniejszego dostepu do kolejnych kolumn w metodzie INTERLEAVED
+OGOLNY WNIOSEK:
+Korzystnie jest korzystac z wielowatkowosci, poniewaz skraca w bardzo duzym stopniu czas dzialania programu.
+Co do SIGN to korzystniej jest nie korzystac z wielowatkowosci w ogole, poniewaz kazdy watek i tak przebiega po calej tablicy
+Najkorzystniejsza metoda okazala sie BLOCK i to ja warto stosowac, poniewaz jest zdecydowania najszybsza. 
+
+------------------------------------------------------------------------------
+                                   SIGN
+------------------------------------------------------------------------------
+                                1 thread
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 1 milliseconds 371 microseconds
+
+
+The main thread operating time: 0 seconds 4 milliseconds 187 microseconds
+------------------------------------------------------------------------------
+                                2 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 2 milliseconds 886 microseconds
+Thread 1 operating time: 0 seconds 2 milliseconds 643 microseconds
+
+
+The main thread operating time: 0 seconds 7 milliseconds 927 microseconds
+------------------------------------------------------------------------------
+                                4 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 2 milliseconds 648 microseconds
+Thread 1 operating time: 0 seconds 2 milliseconds 847 microseconds
+Thread 2 operating time: 0 seconds 3 milliseconds 447 microseconds
+Thread 3 operating time: 0 seconds 1 milliseconds 770 microseconds
+
+
+The main thread operating time: 0 seconds 13 milliseconds 9 microseconds
+------------------------------------------------------------------------------
+                                8 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 1 milliseconds 376 microseconds
+Thread 1 operating time: 0 seconds 1 milliseconds 840 microseconds
+Thread 2 operating time: 0 seconds 5 milliseconds 828 microseconds
+Thread 3 operating time: 0 seconds 3 milliseconds 397 microseconds
+Thread 4 operating time: 0 seconds 3 milliseconds 399 microseconds
+Thread 5 operating time: 0 seconds 17 milliseconds 748 microseconds
+Thread 6 operating time: 0 seconds 13 milliseconds 412 microseconds
+Thread 7 operating time: 0 seconds 1 milliseconds 42 microseconds
+
+
+The main thread operating time: 0 seconds 21 milliseconds 120 microseconds
+------------------------------------------------------------------------------
+                                   BLOCK
+------------------------------------------------------------------------------
+                                1 thread
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 740 microseconds
+
+
+The main thread operating time: 0 seconds 2 milliseconds 636 microseconds
+------------------------------------------------------------------------------
+                                2 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 368 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 375 microseconds
+
+
+The main thread operating time: 0 seconds 2 milliseconds 849 microseconds
+------------------------------------------------------------------------------
+                                4 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 183 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 210 microseconds
+Thread 2 operating time: 0 seconds 0 milliseconds 226 microseconds
+Thread 3 operating time: 0 seconds 0 milliseconds 230 microseconds
+
+
+The main thread operating time: 0 seconds 3 milliseconds 98 microseconds
+------------------------------------------------------------------------------
+                                8 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 98 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 100 microseconds
+Thread 2 operating time: 0 seconds 0 milliseconds 109 microseconds
+Thread 3 operating time: 0 seconds 0 milliseconds 146 microseconds
+Thread 4 operating time: 0 seconds 0 milliseconds 155 microseconds
+Thread 5 operating time: 0 seconds 0 milliseconds 132 microseconds
+Thread 6 operating time: 0 seconds 0 milliseconds 149 microseconds
+Thread 7 operating time: 0 seconds 0 milliseconds 113 microseconds
+
+
+The main thread operating time: 0 seconds 3 milliseconds 511 microseconds
+------------------------------------------------------------------------------
+                                INTERLEAVED
+------------------------------------------------------------------------------
+                                1 thread
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 1 milliseconds 747 microseconds
+
+
+The main thread operating time: 0 seconds 3 milliseconds 801 microseconds
+------------------------------------------------------------------------------
+                                2 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 671 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 860 microseconds
+
+
+The main thread operating time: 0 seconds 3 milliseconds 787 microseconds
+------------------------------------------------------------------------------
+                                4 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 341 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 247 microseconds
+Thread 2 operating time: 0 seconds 0 milliseconds 524 microseconds
+Thread 3 operating time: 0 seconds 0 milliseconds 575 microseconds
+
+
+The main thread operating time: 0 seconds 4 milliseconds 269 microseconds
+------------------------------------------------------------------------------
+                                8 threads
+------------------------------------------------------------------------------
+Thread 0 operating time: 0 seconds 0 milliseconds 135 microseconds
+Thread 1 operating time: 0 seconds 0 milliseconds 135 microseconds
+Thread 2 operating time: 0 seconds 0 milliseconds 194 microseconds
+Thread 3 operating time: 0 seconds 0 milliseconds 135 microseconds
+Thread 4 operating time: 0 seconds 0 milliseconds 135 microseconds
+Thread 5 operating time: 0 seconds 0 milliseconds 184 microseconds
+Thread 6 operating time: 0 seconds 0 milliseconds 371 microseconds
+Thread 7 operating time: 0 seconds 0 milliseconds 264 microseconds
+
+
+The main thread operating time: 0 seconds 4 milliseconds 918 microseconds
+------------------------------------------------------------------------------
