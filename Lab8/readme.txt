@@ -4,6 +4,8 @@ Zadanie zostalo wykonane 1:1 w stosunku do warunkow zadania tj. argumenty, forma
 
 Podzial kolorow w poleceniu SIGN jest podzielony w podobny sposob jak kolejne kolumny w BLOCK.
 
+Do synchronizacji uzylem mechanizmu semaforow Systemu V.
+
 Program ma opcjonalnie mozliwosc wyrysowania pogladowego histogramu. Program w odpowiednim momencie
 pyta uzytkownika o taka mozliwosc.
 

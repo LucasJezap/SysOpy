@@ -5,6 +5,7 @@
 #include <sys/time.h>
 #include <stdint.h>
 #include <math.h>
+#include "semaphore.h"
 
 /**
  * Global variables
@@ -14,6 +15,7 @@ pthread_t *threads;
 char *work_type;
 char *input_file;
 char *output_file;
+int semaphoreId;
 
 int n=0,m=1;
 int **image;
@@ -64,6 +66,10 @@ int main(int argc, char*argv[]) {
 
     input_file = argv[3];
     output_file = argv[4];
+    /* -------------------*/
+    
+    /* creating semaphore */
+    semaphoreId = makeSemaphore();
     /* -------------------*/
 
     /* preparing image */
@@ -116,6 +122,7 @@ int main(int argc, char*argv[]) {
     free(image);
     free(threads);
     free(pixels);
+    deleteSemaphore(semaphoreId);
 
     return 0;
 }
@@ -184,7 +191,9 @@ void* execute_thread_block() {
 
     for (int i=0; i<n; i++) {
         for (int j=left; j<=right; j++) {
+            decrement(semaphoreId);
             pixels[image[i][j]]++;
+	    increment(semaphoreId);
         }
     }
     gettimeofday(&et,NULL);
@@ -206,7 +215,9 @@ void* execute_thread_interleaved() {
 
     while (start < m) {
         for (int i=0; i<n; i++) {
+	    decrement(semaphoreId);
             pixels[image[i][start]]++;
+	    increment(semaphoreId);
         }
         start += number_of_threads;
     }
@@ -319,6 +330,7 @@ void save_results_to_file() {
 void print_histogram() {
     char decision;
     printf("Do you want to see the histogram of results? [y/n]\n");
+    printf("If yes, please enlargen the terminal\n");
     decision = getc(stdin);
     if (decision == 'n')
         return;
