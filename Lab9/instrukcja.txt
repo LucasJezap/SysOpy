@@ -1,0 +1,26 @@
+Kod zrodlowy jest odpowiednio opisany/skomentowany i jest przejrzysty jak to tylko mozliwe.
+
+W celu rozwiazania zadania uzylem metod synchronizacji (mutex oraz condition variables - tak jak bylo polecone w zadaniu).
+
+W celu lepszego pogladu na przebieg dzialania zadania poszczegolne wiadomosci program wypisuje w roznych kolorach - ulatwia analize.
+
+W celu lepszego pogladu na przebieg dzialania zadania po kazdej operacji klienta lub golibrody wyswietla sie obraz pokoju, 
+gdzie x oznacza zajete krzeslo a o krzeslo wolne.
+
+Pokrylem rowniez corner casy tj. 0 klientow lub 0 krzesel. 
+
+Klienci sa obslugiwani wedlug kolejnosci wejscia do sklepu. Przykladowo jesli klient numer n chcial wejsc do sklepu ale byl pelen.
+Nastepnie odczekuje pare sekund zeby znowu wejsc. Klient numer n+1 daje rade wejsc przed klientem n zatem to on bedzie obsluzony predzej.
+
+Dzieki zastosowaniu mechanizmow synchronizacji nie dochodzi do nieprzyjemnych sytuacji takich jak jednoczesnie zajecie krzesla przez
+dwoch klientow lub sen golibrody gdy pewni klienci czekaja na obsluzenie.
+
+Zadanie zostalo w calosci zaimplementowane wedlug wskazowek podanych na UPEL.
+
+Golibroda obsluguje klienta losowa ilosc czasu ustawiona w naglowku. Dla aktualnych wartosci w naglowku, w celu osiagniecia pelnego sklepu, 
+prosze wywolac program z iloscia klientow 2-3 razy wieksza niz ilosc krzesel np. ./barber 3 9
+
+Wywolanie:
+make compile
+./barber k n , gdzie k - ilosc krzesel, n - ilosc klientow
+make clean

@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 #define SLEEP_THREAD 1
-#define SLEEP_BARBER_JOB 4
+#define SLEEP_BARBER_JOB 3
 #define SLEEP_FULL_SHOP 2
 
 #define RED() (printf("\033[1;31m"))
@@ -276,7 +276,7 @@ void* barber_thread() {
         pthread_mutex_unlock(&office);
 
         srand(time(NULL));
-        sleep(1+rand()%SLEEP_BARBER_JOB);
+        sleep(2+rand()%SLEEP_BARBER_JOB);
         RED();
         printf("Barber: I'm done with Client %d\n",tmp);
         DEFAULT();
